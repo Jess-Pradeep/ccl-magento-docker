@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="aw_ctq_quote_comment_form"/>
+    <update handle="aw_ctq_quote_external_header"/>
+    <head>
+        <meta name="robots" content="NOINDEX,NOFOLLOW"/>
+    </head>
+    <body>
+        <referenceBlock name="aw_ctq.customer.quote.comment">
+            <arguments>
+                <argument name="method_to_locate_quote" xsi:type="string">locate_by_hash</argument>
+                <argument name="comment_view_model" xsi:type="object">Aheadworks\Ctq\ViewModel\Customer\Quote\External\Comment</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

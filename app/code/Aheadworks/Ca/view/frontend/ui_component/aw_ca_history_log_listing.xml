@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">aw_ca_history_log_listing.aw_ca_history_log_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>aw_ca_history_log_columns</spinner>
+        <deps>
+            <dep>aw_ca_history_log_listing.aw_ca_history_log_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="aw_ca_history_log_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <dataProvider class="Aheadworks\Ca\Ui\DataProvider\HistoryLog\ListingDataProvider" name="aw_ca_history_log_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks" component="Aheadworks_Ca/js/ui/grid/controls/bookmarks/bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters" displayArea="dataGridFilters" component="Aheadworks_Ca/js/ui/grid/filters/filters">
+            <settings>
+                <dataScope>filters</dataScope>
+                <childDefaults>
+                    <param name="imports" xsi:type="array">
+                        <item name="visible" xsi:type="string">
+                            aw_ca_history_log_listing.aw_ca_history_log_listing.listing_top.bookmarks:current.columns.${ $.index }.visible
+                        </item>
+                    </param>
+                    <param name="provider" xsi:type="string">
+                        aw_ca_history_log_listing.aw_ca_history_log_listing.listing_top.listing_filters
+                    </param>
+                </childDefaults>
+                <storageConfig>
+                    <namespace>current.filters</namespace>
+                    <provider>
+                        aw_ca_history_log_listing.aw_ca_history_log_listing.listing_top.bookmarks
+                    </provider>
+                </storageConfig>
+                <templates>
+                    <filters>
+                        <dateRange>
+                            <param name="templates" xsi:type="array">
+                                <item name="date" xsi:type="array">
+                                    <item name="dateFormat" xsi:type="string">dd/MM/YYYY</item>
+                                    <item name="options" xsi:type="array">
+                                        <item name="dateFormat" xsi:type="string">dd/MM/y</item>
+                                    </item>
+                                </item>
+                            </param>
+                        </dateRange>
+                    </filters>
+                </templates>
+            </settings>
+        </filters>
+    </listingToolbar>
+    <columns name="aw_ca_history_log_columns">
+        <column name="id" sortOrder="10" component="Magento_Ui/js/grid/columns/column">
+            <settings>
+                <label translate="true">Log ID</label>
+                <visible>true</visible>
+                <draggable>false</draggable>
+                <sortable>true</sortable>
+                <filter>text</filter>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="customer_id" sortOrder="20">
+            <settings>
+                <label translate="true">Customer ID</label>
+                <visible>true</visible>
+                <draggable>false</draggable>
+                <sortable>true</sortable>
+                <filter>text</filter>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="company_id" sortOrder="30">
+            <settings>
+                <label translate="true">Company ID</label>
+                <visible>false</visible>
+                <draggable>false</draggable>
+                <sortable>true</sortable>
+                <filter>text</filter>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="entity_id" sortOrder="30">
+            <settings>
+                <label translate="true">Entity ID</label>
+                <visible>true</visible>
+                <draggable>false</draggable>
+                <sortable>true</sortable>
+                <filter>text</filter>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="ip" sortOrder="40" class="Aheadworks\Ca\Ui\Component\Listing\Column\IpColumn">
+            <settings>
+                <label translate="true">IP</label>
+                <visible>true</visible>
+                <draggable>false</draggable>
+                <sortable>true</sortable>
+                <filter>text</filter>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="customer_name" sortOrder="50">
+            <settings>
+                <label translate="true">Customer Name</label>
+                <visible>true</visible>
+                <draggable>false</draggable>
+                <sortable>true</sortable>
+                <filter>text</filter>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="time">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="options" xsi:type="array">
+                        <item name="dateFormat" xsi:type="string">dd/MM/YYYY</item>
+                    </item>
+                    <item name="label" xsi:type="string" translate="true">Last Updated</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
+                    <item name="class" xsi:type="string">Magento\Ui\Component\Listing\Columns\Date</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="skipTimeZoneConversion" xsi:type="boolean">true</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="dataType" xsi:type="string">date</item>
+                    <item name="dateFormat" xsi:type="string">dd/MM/YYYY</item>
+                    <item name="inputDateFormat" xsi:type="string">dd/MM/YYYY</item>
+                    <item name="outputDateFormat" xsi:type="string">dd/MM/YYYY</item>
+                    <item name="pickerDateTimeFormat" xsi:type="string">dd/MM/YYYY</item>
+                    <item name="pickerDateFormat" xsi:type="string">dd/MM/YYYY</item>
+                    <item name="draggable" xsi:type="boolean">false</item>
+                    <item name="filter" xsi:type="string">dateRange</item>
+                    <item name="sortOrder" xsi:type="number">60</item>
+                    <item name="bodyTmpl" xsi:type="string">Aheadworks_UiComponents/grid/cells/text</item>
+                </item>
+            </argument>
+        </column>
+        <column name="performed_action" sortOrder="70">
+            <settings>
+                <label translate="true">Performed Action</label>
+                <visible>true</visible>
+                <draggable>false</draggable>
+                <sortable>true</sortable>
+                <filter>text</filter>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="values_set_to" sortOrder="80">
+            <settings>
+                <label translate="true">Values Set To</label>
+                <visible>true</visible>
+                <draggable>false</draggable>
+                <sortable>true</sortable>
+                <filter>text</filter>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="entity_type" sortOrder="90">
+            <settings>
+                <label translate="true">Entity Type</label>
+                <visible>true</visible>
+                <draggable>false</draggable>
+                <sortable>true</sortable>
+                <filter>text</filter>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+    </columns>
+    <listingToolbar name="listing_bottom">
+        <paging name="listing_paging"/>
+    </listingToolbar>
+</listing>

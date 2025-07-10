@@ -1,0 +1,301 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Access to constant FORM_ELEMENT_PREFIX on an unknown class Aheadworks\\\\SalesRepresentative\\\\Block\\\\Role\\\\Edit\\\\Tab\\\\AdvancedPermissions\\.$#"
+			count: 1
+			path: Block/Role/Edit/Tab/AdvancedPermissions/CompanyAccess.php
+
+		-
+			message: "#^Class Aheadworks\\\\PaymentRestrictions\\\\Model\\\\PaymentManagement not found\\.$#"
+			count: 1
+			path: Model/Source/Company/PaymentMethod.php
+
+		-
+			message: "#^Class Aheadworks\\\\CreditLimit\\\\Api\\\\SummaryRepositoryInterface not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/CreditLimit/Model/Company/AssignmentProcessor.php
+
+		-
+			message: "#^Class Aheadworks\\\\CreditLimit\\\\Model\\\\Customer\\\\Backend\\\\BalanceUpdater not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/CreditLimit/Model/Company/Updater.php
+
+		-
+			message: "#^Class Aheadworks\\\\CreditLimit\\\\Model\\\\Customer\\\\CreditLimit\\\\DataProvider not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/CreditLimit/Ui/CreditLimitFormModifier.php
+
+		-
+			message: "#^Class Aheadworks\\\\Ctq\\\\Api\\\\QuoteRepositoryInterface not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Ctq/Model/CtqManagement.php
+
+		-
+			message: "#^Class Aheadworks\\\\Ctq\\\\Model\\\\Cart\\\\ToQuoteCart not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Ctq/Model/CtqManagement.php
+
+		-
+			message: "#^Class Aheadworks\\\\Ctq\\\\Api\\\\QuoteRepositoryInterface not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Ctq/Model/QuoteCustomerSession.php
+
+		-
+			message: "#^Access to constant CUSTOMER_ID on an unknown class Aheadworks\\\\Ctq\\\\Api\\\\Data\\\\QuoteInterface\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Ctq/Plugin/QuoteListPlugin.php
+
+		-
+			message: "#^Parameter \\$subject of method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\PaymentRestrictions\\\\Plugin\\\\Model\\\\PaymentManagementPlugin\\:\\:aroundIsAvailable\\(\\) has invalid type Aheadworks\\\\PaymentRestrictions\\\\Model\\\\PaymentManagement\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/PaymentRestrictions/Plugin/Model/PaymentManagementPlugin.php
+
+		-
+			message: "#^Class Aheadworks\\\\RequisitionLists\\\\Api\\\\RequisitionListRepositoryInterface not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/RequisitionLists/Model/ListCustomerSession.php
+
+		-
+			message: "#^Class Aheadworks\\\\RequisitionLists\\\\Api\\\\RequisitionListRepositoryInterface not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/RequisitionLists/Model/RequisitionListProvider.php
+
+		-
+			message: "#^Class Aheadworks\\\\RequisitionLists\\\\Ui\\\\Component\\\\RequisitionList\\\\Item\\\\Listing\\\\MassAction\\\\Option\\\\CopyTo not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/RequisitionLists/Plugin/Ui/Component/Listing/MassActionPlugin.php
+
+		-
+			message: "#^Class Aheadworks\\\\RequisitionLists\\\\Ui\\\\Component\\\\RequisitionList\\\\Item\\\\Listing\\\\MassAction\\\\Option\\\\MoveTo not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/RequisitionLists/Plugin/Ui/Component/Listing/MassActionPlugin.php
+
+		-
+			message: "#^Access to constant CUSTOMER_ID on an unknown class Aheadworks\\\\RewardPoints\\\\Api\\\\Data\\\\TransactionInterface\\.$#"
+			count: 2
+			path: Model/ThirdPartyModule/Aheadworks/RewardPoints/Model/Company/AssignmentProcessor.php
+
+		-
+			message: "#^Class Aheadworks\\\\RewardPoints\\\\Api\\\\PointsSummaryRepositoryInterface not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/RewardPoints/Model/Company/AssignmentProcessor.php
+
+		-
+			message: "#^Class Aheadworks\\\\RewardPoints\\\\Model\\\\ResourceModel\\\\Transaction not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/RewardPoints/Model/Company/AssignmentProcessor.php
+
+		-
+			message: "#^Class Aheadworks\\\\RewardPoints\\\\Api\\\\PointsSummaryRepositoryInterface not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/RewardPoints/Model/SummaryManagement.php
+
+		-
+			message: "#^Class Aheadworks\\\\RewardPoints\\\\Model\\\\Calculator\\\\RateCalculator not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/RewardPoints/Model/SummaryManagement.php
+
+		-
+			message: "#^Class Aheadworks\\\\RewardPoints\\\\Model\\\\Config not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/RewardPoints/Model/SummaryManagement.php
+
+		-
+			message: "#^Access to constant BALANCE_ADJUSTED_BY_ADMIN on an unknown class Aheadworks\\\\RewardPoints\\\\Model\\\\Source\\\\Transaction\\\\Type\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/RewardPoints/Model/TransactionManagement.php
+
+		-
+			message: "#^Class Aheadworks\\\\RewardPoints\\\\Api\\\\TransactionManagementInterface not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/RewardPoints/Model/TransactionManagement.php
+
+		-
+			message: "#^Parameter \\$subject of method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\RewardPoints\\\\Plugin\\\\Customer\\\\PointsSummaryServicePlugin\\:\\:aroundGetCustomerRewardPointsBalance\\(\\) has invalid type Aheadworks\\\\RewardPoints\\\\Model\\\\Service\\\\PointsSummaryService\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/RewardPoints/Plugin/Customer/PointsSummaryServicePlugin.php
+
+		-
+			message: "#^Class Aheadworks\\\\Bup\\\\Api\\\\UserProfileMetadataRepositoryInterface not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/SalesRepresentative/ViewModel/CustomerCompanyMessage.php
+
+		-
+			message: "#^Class Aheadworks\\\\Sarp2\\\\Api\\\\ProfileRepositoryInterface not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Model/ProfileRepositoryFactory.php
+
+		-
+			message: "#^Method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\Sarp2\\\\Model\\\\ProfileRepositoryFactory\\:\\:create\\(\\) has invalid return type Aheadworks\\\\Sarp2\\\\Api\\\\ProfileRepositoryInterface\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Model/ProfileRepositoryFactory.php
+
+		-
+			message: "#^Class Aheadworks\\\\Sarp2\\\\Model\\\\ResourceModel\\\\Profile\\\\CollectionFactory not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Model/ResourceModel/ProfileCollectionFactory.php
+
+		-
+			message: "#^Method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\Sarp2\\\\Model\\\\ResourceModel\\\\ProfileCollectionFactory\\:\\:create\\(\\) has invalid return type Aheadworks\\\\Sarp2\\\\Model\\\\ResourceModel\\\\Profile\\\\Collection\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Model/ResourceModel/ProfileCollectionFactory.php
+
+		-
+			message: "#^Parameter \\$profile of method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\Sarp2\\\\Plugin\\\\Block\\\\Customer\\\\SubscriptionPlugin\\:\\:aroundGetUpdatedBy\\(\\) has invalid type Aheadworks\\\\Sarp2\\\\Api\\\\Data\\\\ProfileInterface\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Plugin/Block/Customer/SubscriptionPlugin.php
+
+		-
+			message: "#^Parameter \\$subject of method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\Sarp2\\\\Plugin\\\\Block\\\\Customer\\\\SubscriptionPlugin\\:\\:afterCanShowUpdatedBy\\(\\) has invalid type Aheadworks\\\\Sarp2\\\\Block\\\\Customer\\\\Subscription\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Plugin/Block/Customer/SubscriptionPlugin.php
+
+		-
+			message: "#^Parameter \\$subject of method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\Sarp2\\\\Plugin\\\\Block\\\\Customer\\\\SubscriptionPlugin\\:\\:aroundGetUpdatedBy\\(\\) has invalid type Aheadworks\\\\Sarp2\\\\Block\\\\Customer\\\\Subscription\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Plugin/Block/Customer/SubscriptionPlugin.php
+
+		-
+			message: "#^Parameter \\$subject of method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\Sarp2\\\\Plugin\\\\Block\\\\Customer\\\\SubscriptionPlugin\\:\\:aroundIsEditActionAvailable\\(\\) has invalid type Aheadworks\\\\Sarp2\\\\Block\\\\Customer\\\\Subscription\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Plugin/Block/Customer/SubscriptionPlugin.php
+
+		-
+			message: "#^Parameter \\$subject of method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\Sarp2\\\\Plugin\\\\Block\\\\Customer\\\\SubscriptionPlugin\\:\\:aroundIsExtendActionAvailable\\(\\) has invalid type Aheadworks\\\\Sarp2\\\\Block\\\\Customer\\\\Subscription\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Plugin/Block/Customer/SubscriptionPlugin.php
+
+		-
+			message: "#^Parameter \\$subject of method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\Sarp2\\\\Plugin\\\\Block\\\\Customer\\\\SubscriptionPlugin\\:\\:aroundIsRenewActionAvailable\\(\\) has invalid type Aheadworks\\\\Sarp2\\\\Block\\\\Customer\\\\Subscription\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Plugin/Block/Customer/SubscriptionPlugin.php
+
+		-
+			message: "#^Access to constant CREATED_AT on an unknown class Aheadworks\\\\Sarp2\\\\Api\\\\Data\\\\ProfileInterface\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Plugin/Block/Customer/SubscriptionsPlugin.php
+
+		-
+			message: "#^Access to constant CUSTOMER_ID on an unknown class Aheadworks\\\\Sarp2\\\\Api\\\\Data\\\\ProfileInterface\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Plugin/Block/Customer/SubscriptionsPlugin.php
+
+		-
+			message: "#^Access to constant SORT_ORDER_DESC on an unknown class Aheadworks\\\\Sarp2\\\\Model\\\\ResourceModel\\\\Profile\\\\Collection\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Plugin/Block/Customer/SubscriptionsPlugin.php
+
+		-
+			message: "#^Method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\Sarp2\\\\Plugin\\\\Block\\\\Customer\\\\SubscriptionsPlugin\\:\\:afterGetProfiles\\(\\) has invalid return type Aheadworks\\\\Sarp2\\\\Model\\\\ResourceModel\\\\Profile\\\\Collection\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Plugin/Block/Customer/SubscriptionsPlugin.php
+
+		-
+			message: "#^Parameter \\$collection of method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\Sarp2\\\\Plugin\\\\Block\\\\Customer\\\\SubscriptionsPlugin\\:\\:afterGetProfiles\\(\\) has invalid type Aheadworks\\\\Sarp2\\\\Model\\\\ResourceModel\\\\Profile\\\\Collection\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Plugin/Block/Customer/SubscriptionsPlugin.php
+
+		-
+			message: "#^Access to constant PROFILE_ID on an unknown class Aheadworks\\\\Sarp2\\\\Api\\\\Data\\\\ProfileInterface\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Plugin/Controller/Profile/AbstractProfilePlugin.php
+
+		-
+			message: "#^Parameter \\$subject of method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\Sarp2\\\\Plugin\\\\Controller\\\\Profile\\\\AbstractProfilePlugin\\:\\:afterIsProfileBelongsToCustomer\\(\\) has invalid type Aheadworks\\\\Sarp2\\\\Controller\\\\Profile\\\\AbstractProfile\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Plugin/Controller/Profile/AbstractProfilePlugin.php
+
+		-
+			message: "#^Parameter \\$subject of method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\Sarp2\\\\Plugin\\\\Controller\\\\Profile\\\\AbstractProfilePlugin\\:\\:isCustomerBelongsToCompany\\(\\) has invalid type Aheadworks\\\\Sarp2\\\\Controller\\\\Profile\\\\AbstractProfile\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/Sarp2/Plugin/Controller/Profile/AbstractProfilePlugin.php
+
+		-
+			message: "#^Class Aheadworks\\\\ShippingRestrictions\\\\Model\\\\ShippingManagement not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/ShippingRestrictions/Model/ShippingManagementFactory.php
+
+		-
+			message: "#^Method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\ShippingRestrictions\\\\Model\\\\ShippingManagementFactory\\:\\:create\\(\\) has invalid return type Aheadworks\\\\ShippingRestrictions\\\\Model\\\\ShippingManagement\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/ShippingRestrictions/Model/ShippingManagementFactory.php
+
+		-
+			message: "#^Parameter \\$subject of method Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Aheadworks\\\\ShippingRestrictions\\\\Plugin\\\\Model\\\\ShippingManagementPlugin\\:\\:aroundIsAvailable\\(\\) has invalid type Aheadworks\\\\ShippingRestrictions\\\\Model\\\\ShippingManagement\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/ShippingRestrictions/Plugin/Model/ShippingManagementPlugin.php
+
+		-
+			message: "#^Access to constant CUSTOMER_ID on an unknown class Aheadworks\\\\StoreCredit\\\\Api\\\\Data\\\\TransactionInterface\\.$#"
+			count: 2
+			path: Model/ThirdPartyModule/Aheadworks/StoreCredit/Model/Company/AssignmentProcessor.php
+
+		-
+			message: "#^Class Aheadworks\\\\StoreCredit\\\\Api\\\\SummaryRepositoryInterface not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/StoreCredit/Model/Company/AssignmentProcessor.php
+
+		-
+			message: "#^Class Aheadworks\\\\StoreCredit\\\\Model\\\\ResourceModel\\\\Transaction not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/StoreCredit/Model/Company/AssignmentProcessor.php
+
+		-
+			message: "#^Class Aheadworks\\\\StoreCredit\\\\Api\\\\SummaryRepositoryInterface not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/StoreCredit/Model/SummaryManagement.php
+
+		-
+			message: "#^Class Aheadworks\\\\StoreCredit\\\\Api\\\\TransactionRepositoryInterface not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/StoreCredit/Model/SummaryManagement.php
+
+		-
+			message: "#^Access to constant BALANCE_ADJUSTED_BY_ADMIN on an unknown class Aheadworks\\\\StoreCredit\\\\Model\\\\Source\\\\TransactionType\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/StoreCredit/Model/TransactionManagement.php
+
+		-
+			message: "#^Access to constant NO on an unknown class Aheadworks\\\\StoreCredit\\\\Model\\\\Source\\\\NotifiedStatus\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/StoreCredit/Model/TransactionManagement.php
+
+		-
+			message: "#^Class Aheadworks\\\\StoreCredit\\\\Api\\\\TransactionManagementInterface not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Aheadworks/StoreCredit/Model/TransactionManagement.php
+
+		-
+			message: "#^Class Magento\\\\ReCaptchaAdminUi\\\\Model\\\\OptionSource\\\\Type not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Magento/ReCaptcha/Model/OptionSource.php
+
+		-
+			message: "#^Class MSP\\\\ReCaptcha\\\\Model\\\\Config not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Msp/ReCaptcha/Model/Config.php
+
+		-
+			message: "#^Class Aheadworks\\\\Ca\\\\Model\\\\ThirdPartyModule\\\\Msp\\\\ReCaptcha\\\\Observer\\\\Frontend\\\\CreateAwCaCompanyObserver not found\\.$#"
+			count: 1
+			path: Model/ThirdPartyModule/Msp/ReCaptcha/Observer/CreateAwCaCompanyObserver.php
+
+		-
+			message: "#^Parameter \\$salesRepResolver of method Aheadworks\\\\Ca\\\\Plugin\\\\Model\\\\SalesRepresentative\\\\SalesRep\\\\AutoAssign\\\\SalesRepResolverPlugin\\:\\:afterGetSalesRepId\\(\\) has invalid type Aheadworks\\\\SalesRepresentative\\\\Model\\\\SalesRep\\\\AutoAssign\\\\SalesRepResolver\\.$#"
+			count: 1
+			path: Plugin/Model/SalesRepresentative/SalesRep/AutoAssign/SalesRepResolverPlugin.php
+
+		-
+			message: "#^Class Aheadworks\\\\CreditLimit\\\\Api\\\\SummaryRepositoryInterface not found\\.$#"
+			count: 1
+			path: Ui/Component/Form/Company/CreditLimit/CurrencyPriceField.php
+
+		-
+			message: "#^Class MSP\\\\ReCaptcha\\\\Block\\\\Frontend\\\\ReCaptcha not found\\.$#"
+			count: 1
+			path: Ui/DataProvider/Company/Form/Modifier/MspReCaptcha.php
+
+		-
+			message: "#^Class Aheadworks\\\\Ca\\\\Ui\\\\DataProvider\\\\Company\\\\Listing\\\\Modifier\\\\Pool not found\\.$#"
+			count: 1
+			path: Ui/DataProvider/Company/ListingDataProvider.php

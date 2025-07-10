@@ -1,0 +1,24 @@
+<?php
+/* @var \Aheadworks\CreditLimit\Block\Customer\TotalList $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Aheadworks\CreditLimit\ViewModel\Customer\CreditLimitInfo $viewModel
+ */
+
+$viewModel = $this->getViewModel();
+?>
+<?php if($viewModel->isPaymentPeriodExpired($block->getCustomerId())): ?>
+    <div class="message warning">
+        <?= $escaper->escapeHtml(__('Please update your balance to place orders')) ?>
+    </div>
+<?php endif; ?>
+<div data-role="aw-cl__top-total-list"  data-bind="scope: 'aw_credit_limit_top_totals'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=aw-cl__top-total-list]": {
+            "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+        }
+    }
+</script>

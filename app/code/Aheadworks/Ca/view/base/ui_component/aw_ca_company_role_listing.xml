@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">aw_ca_company_role_listing.aw_ca_company_role_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>aw_ca_company_role_columns</spinner>
+        <deps>
+            <dep>aw_ca_company_role_listing.aw_ca_company_role_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="aw_ca_company_role_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+                <param name="cacheRequests" xsi:type="boolean">false</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+            <filterUrlParams>
+                <param name="company_id">*</param>
+            </filterUrlParams>
+        </settings>
+        <dataProvider class="Aheadworks\Ca\Ui\DataProvider\Company\Role\ListingDataProvider" name="aw_ca_company_role_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <columns name="aw_ca_company_role_columns">
+        <column name="id" sortOrder="20">
+            <settings>
+                <sortable>false</sortable>
+                <draggable>false</draggable>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="name" sortOrder="30" class="Aheadworks\Ca\Ui\Component\Listing\Column\RoleColumn">
+            <settings>
+                <sortable>false</sortable>
+                <draggable>false</draggable>
+                <label translate="true">Name</label>
+            </settings>
+        </column>
+        <column name="count_users" sortOrder="40">
+            <settings>
+                <sortable>false</sortable>
+                <draggable>false</draggable>
+                <label translate="true">Users</label>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Aheadworks\Ca\Ui\Component\Listing\Column\Actions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="addCompanyIdToUrl" xsi:type="boolean">true</item>
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">120</item>
+                    <item name="indexField" xsi:type="string">id</item>
+                    <item name="viewUrlPath" xsi:type="string">aw_ca/role/edit</item>
+                    <item name="sortOrder" xsi:type="number">999</item>
+                </item>
+            </argument>
+        </actionsColumn>
+    </columns>
+</listing>

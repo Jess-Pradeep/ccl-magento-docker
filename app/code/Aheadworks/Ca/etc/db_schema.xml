@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="aw_ca_company" resource="default" engine="innodb" comment="AW Company Table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Company Id"/>
+        <column xsi:type="int" name="root_group_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Root group id"/>
+        <column xsi:type="varchar" name="status" nullable="false" length="20" default="pending_approval"
+                comment="Status"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Name"/>
+        <column xsi:type="varchar" name="legal_name" nullable="true" length="255" comment="Legal name"/>
+        <column xsi:type="varchar" name="email" nullable="false" length="100" comment="Email"/>
+        <column xsi:type="varchar" name="tax_id" nullable="true" length="50" comment="Tax id"/>
+        <column xsi:type="varchar" name="re_seller_id" nullable="true" length="50" comment="Seller id"/>
+        <column xsi:type="varchar" name="street" nullable="false" length="50" comment="Street"/>
+        <column xsi:type="varchar" name="city" nullable="false" length="50" comment="City"/>
+        <column xsi:type="varchar" name="country_id" nullable="false" length="2" comment="Country"/>
+        <column xsi:type="varchar" name="region" nullable="true" length="50" comment="State"/>
+        <column xsi:type="int" name="region_id" padding="10" unsigned="true" nullable="true" identity="false"
+                comment="State Id"/>
+        <column xsi:type="varchar" name="postcode" nullable="true" length="30" comment="Postcode"/>
+        <column xsi:type="varchar" name="telephone" nullable="true" length="30" comment="Telephone"/>
+        <column xsi:type="text" name="notes" nullable="true" comment="Notes"/>
+        <column xsi:type="int" name="sales_representative_id" padding="10" unsigned="true" nullable="true"
+                identity="false" comment="Sales Representative ID"/>
+        <column xsi:type="int" name="customer_group_id" padding="10" unsigned="true" nullable="true" identity="false"
+                comment="Customer Group ID"/>
+        <column xsi:type="smallint" name="is_allowed_to_quote" padding="5" unsigned="true" nullable="false"
+                identity="false" default="0" comment="Is Allowed to Quote"/>
+        <column xsi:type="smallint" name="is_approved_notification_sent" padding="5" unsigned="true" nullable="false"
+                identity="false" default="0" comment="Is Approved Notification Sent"/>
+        <column xsi:type="smallint" name="is_declined_notification_sent" padding="5" unsigned="true" nullable="false"
+                identity="false" default="0" comment="Is Declined Notification Sent"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Updated At"/>
+        <column xsi:type="boolean" name="is_shared_addresses_flag_enabled" nullable="false" default="0" comment="Is Shared Addresses Flag Enabled"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="AW_CA_COMPANY_EMAIL" indexType="btree">
+            <column name="email"/>
+        </index>
+        <index referenceId="AW_CA_COMPANY_ROOT_GROUP_ID" indexType="btree">
+            <column name="root_group_id"/>
+        </index>
+        <index referenceId="AW_CA_COMPANY_NAME_LEGAL_NAME" indexType="fulltext">
+            <column name="name"/>
+            <column name="legal_name"/>
+        </index>
+    </table>
+    <table name="aw_ca_group" resource="default" engine="innodb" comment="AW Group Table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Group Id"/>
+        <column xsi:type="int" name="parent_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Parent group id"/>
+        <column xsi:type="varchar" name="path" nullable="false" length="200" comment="Path Tree"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="AW_CA_GROUP_PARENT_ID" indexType="btree">
+            <column name="parent_id"/>
+        </index>
+    </table>
+    <table name="aw_ca_role" resource="default" engine="innodb" comment="AW Role Table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Role Id"/>
+        <column xsi:type="int" name="company_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Company Id"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Role Name"/>
+        <column xsi:type="mediumtext" name="permissions" nullable="false" comment="Permissions"/>
+        <column xsi:type="smallint" name="default" padding="6" unsigned="false" nullable="false" identity="false"
+                default="0" comment="Is Default"/>
+        <column xsi:type="decimal" name="aw_stc_base_amount_limit" scale="4" precision="12" unsigned="false"
+                nullable="false" default="0" comment="AW Store Credit Base Amount Limit"/>
+        <column xsi:type="decimal" name="aw_rp_base_amount_limit" scale="4" precision="12" unsigned="false"
+                nullable="false" default="0" comment="AW Reward Points Base Amount Limit"/>
+        <column xsi:type="decimal" name="order_base_amount_limit" scale="4" precision="12" unsigned="false"
+                nullable="true" comment="Order Base Amount Limit"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="AW_CA_ROLE_COMPANY_ID_AW_CA_COMPANY_ID" table="aw_ca_role"
+                    column="company_id" referenceTable="aw_ca_company" referenceColumn="id" onDelete="CASCADE"/>
+        <index referenceId="AW_CA_ROLE_COMPANY_ID" indexType="btree">
+            <column name="company_id"/>
+        </index>
+    </table>
+    <table name="aw_ca_company_user" resource="default" engine="innodb" comment="AW Company User Table">
+        <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Customer Id"/>
+        <column xsi:type="int" name="company_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Company Id"/>
+        <column xsi:type="boolean" name="is_root" nullable="false" comment="Is root in company"/>
+        <column xsi:type="smallint" name="status" padding="6" unsigned="false" nullable="false" identity="false"
+                default="1" comment="User Status"/>
+        <column xsi:type="int" name="company_group_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Company Group Id"/>
+        <column xsi:type="int" name="company_role_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Company Role Id"/>
+        <column xsi:type="int" name="company_unit_id" padding="10" unsigned="true" nullable="true" identity="false"
+                comment="Company Unit Id"/>        
+        <column xsi:type="varchar" name="job_title" nullable="false" length="150" comment="Job Title"/>
+        <column xsi:type="varchar" name="telephone" nullable="true" length="30" comment="Telephone"/>
+        <column xsi:type="text" name="additional_info" nullable="true" comment="Additional Information"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="customer_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="AW_CA_COMPANY_USER_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID"
+                    table="aw_ca_company_user" column="customer_id" referenceTable="customer_entity"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="AW_CA_COMPANY_USER_UNIT_ID_AW_CA_UNIT_ID"
+                    table="aw_ca_company_user" column="company_unit_id" referenceTable="aw_ca_unit"
+                    referenceColumn="id" onDelete="SET NULL"/>            
+        <constraint xsi:type="foreign" referenceId="AW_CA_COMPANY_USER_COMPANY_ID_AW_CA_COMPANY_ID"
+                    table="aw_ca_company_user" column="company_id" referenceTable="aw_ca_company" referenceColumn="id"
+                    onDelete="CASCADE"/>
+        <index referenceId="AW_CA_COMPANY_USER_COMPANY_ID" indexType="btree">
+            <column name="company_id"/>
+        </index>
+        <index referenceId="AW_CA_COMPANY_USER_CUSTOMER_ID" indexType="btree">
+            <column name="customer_id"/>
+        </index>
+        <index referenceId="AW_CA_COMPANY_USER_COMPANY_ROLE_ID" indexType="btree">
+            <column name="company_role_id"/>
+        </index>
+         <index referenceId="AW_CA_COMPANY_USER_COMPANY_UNIT_ID" indexType="btree">
+            <column name="company_unit_id"/>
+        </index>
+        <index referenceId="AW_CA_COMPANY_USER_COMPANY_GROUP_ID" indexType="btree">
+            <column name="company_group_id"/>
+        </index>
+    </table>
+    <table name="aw_ca_company_shared_address" resource="default" engine="innodb" comment="AW Company Shared Address">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Id"/>
+        <column xsi:type="int" name="company_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Company Id"/>
+        <column xsi:type="int" name="root_address_id" padding="10" unsigned="true" nullable="true" identity="false"
+                comment="Root Address Id"/>
+        <column xsi:type="int" name="company_user_id" padding="10" unsigned="true" nullable="true" identity="false"
+                comment="Company Uer Id"/>
+        <column xsi:type="int" name="company_user_address_id" padding="10" unsigned="true" nullable="true" identity="false"
+                comment="Company User Address Id"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="AW_CA_COMPANY_SHARED_ADDRESS_COMPANY_ID_AW_CA_COMPANY_ID"
+                    table="aw_ca_company_shared_address" column="company_id" referenceTable="aw_ca_company" referenceColumn="id"
+                    onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="AW_CA_COMPANY_SHARED_ADDRESS_COMPANY_USER_ID_CUSTOMER_ENTITY_ENTITY_ID"
+                    table="aw_ca_company_shared_address" column="company_user_id" referenceTable="customer_entity"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="AW_CA_COMPANY_SHARED_ADDRESS_ROOT_ADDRESS_ID_CUSTOMER_ADDRESS_ENTITY_ENTITY_ID"
+                    table="aw_ca_company_shared_address" column="root_address_id" referenceTable="customer_address_entity"
+                    referenceColumn="entity_id" onDelete="SET NULL"/>
+        <constraint xsi:type="foreign" referenceId="AW_CA_COMPANY_SHARED_ADDRESS_COMPANY_USER_ADDRESS_ID_CUSTOMER_ADDRESS_ENTITY_ENTITY_ID"
+                    table="aw_ca_company_shared_address" column="company_user_address_id" referenceTable="customer_address_entity"
+                    referenceColumn="entity_id" onDelete="SET NULL"/>
+    </table>
+    <table name="aw_ca_company_payments" resource="default" engine="innodb"
+           comment="AW Company Allowed Payment Methods">
+        <column xsi:type="int" name="company_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Company Id"/>
+        <column xsi:type="varchar" name="payment_name" nullable="false" length="255" comment="Payment Name"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="company_id"/>
+            <column name="payment_name"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="AW_CA_COMPANY_PAYMENTS_ID_AW_CA_COMPANY_COMPANY_ID"
+                    table="aw_ca_company_payments" column="company_id" referenceTable="aw_ca_company"
+                    referenceColumn="id" onDelete="CASCADE"/>
+        <index referenceId="AW_CA_COMPANY_PAYMENTS_PAYMENT_NAME" indexType="btree">
+            <column name="payment_name"/>
+        </index>
+    </table>
+    <table name="aw_ca_company_shipping_methods" resource="default" engine="innodb"
+           comment="AW Company Allowed Shipping Methods">
+        <column xsi:type="int" name="company_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Company Id"/>
+        <column xsi:type="varchar" name="shipping_name" nullable="false" length="255" comment="Shipping Name"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="company_id"/>
+            <column name="shipping_name"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="AW_CA_COMPANY_SHIPPING_METHODS_COMPANY_ID_AW_CA_COMPANY_ID"
+                    table="aw_ca_company_shipping_methods" column="company_id" referenceTable="aw_ca_company"
+                    referenceColumn="id" onDelete="CASCADE"/>
+        <index referenceId="AW_CA_COMPANY_SHIPPING_METHODS_SHIPPING_NAME" indexType="btree">
+            <column name="shipping_name"/>
+        </index>
+    </table>
+    <table name="aw_ca_company_requisition_lists" resource="default" engine="innodb"
+           comment="AW Company Requisition Lists">
+        <column xsi:type="int" name="company_list_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Company Requisition List Id"/>
+        <column xsi:type="int" name="updated_by" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Updated By"/>
+        <column xsi:type="int" name="list_record_id" unsigned="true" nullable="false" padding="10" identity="true"
+                comment="List Record ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="list_record_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="AW_CA_COMPANY_LISTS_UPDATED_BY_CUSTOMER_ENTITY_ENTITY_ID"
+                    table="aw_ca_company_requisition_lists" column="updated_by" referenceTable="customer_entity"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+    <table name="aw_ca_company_domain" resource="default" engine="innodb" comment="AW Company Domain Table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Company Domain ID"/>
+        <column xsi:type="int" name="company_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Company ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Domain Name"/>
+        <column xsi:type="varchar" name="status" nullable="false" length="32" comment="Domain Status"/>
+        <column xsi:type="boolean" name="is_approved_notification_sent" default="false" nullable="false"
+                comment="Is Approved Notification Sent"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="AW_CA_COMPANY_DOMAIN_COMPANY_ID_AW_CA_COMPANY_ID"
+                    table="aw_ca_company_domain" column="company_id" referenceTable="aw_ca_company" referenceColumn="id"
+                    onDelete="CASCADE"/>
+        <index referenceId="AW_CA_COMPANY_DOMAIN_COMPANY_ID" indexType="btree">
+            <column name="company_id"/>
+        </index>
+    </table>
+    <table name="aw_ca_order_approval_state" resource="default" engine="innodb" comment="AW Order Approval State Table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Order Approval State ID"/>
+        <column xsi:type="int" name="order_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Order ID"/>
+        <column xsi:type="varchar" name="initial_order_status" nullable="true" length="32"
+                comment="Initial Order Status"/>
+        <column xsi:type="varchar" name="initial_order_state" nullable="true" length="32"
+                comment="Initial Order State"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="AW_CA_ORDER_APPROVAL_STATE_ORDER_ID_SALES_ORDER_ENTITY_ID"
+                    table="aw_ca_order_approval_state" column="order_id" referenceTable="sales_order"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+        <index referenceId="AW_CA_ORDER_APPROVAL_STATE_ORDER_ID" indexType="btree">
+            <column name="order_id"/>
+        </index>
+    </table>
+    <table name="aw_ca_history_log" resource="default" engine="innodb" comment="AW Company History Log Table">
+        <column xsi:type="bigint" name="id" unsigned="false" nullable="false" identity="true"
+                comment="Log Id"/>
+        <column xsi:type="int" name="company_id" padding="10" unsigned="true" nullable="true" identity="false"
+                comment="Company Id"/>
+        <column xsi:type="bigint" name="ip" unsigned="false" nullable="false" identity="false" default="0"
+                comment="Ip address"/>
+        <column xsi:type="varchar" name="customer_name" nullable="true" length="40" comment="Customer name"/>
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="true" identity="false"
+                comment="Customer Id"/>
+        <column xsi:type="timestamp" name="time" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Last Updated"/>
+        <column xsi:type="varchar" name="performed_action" nullable="true" length="200" comment="Performed action"/>
+        <column xsi:type="text" name="values_set_to" nullable="true" comment="Values set to"/>
+        <column xsi:type="varchar" name="entity_type" nullable="true" comment="Entity Type"/>
+        <column xsi:type="int" name="entity_id" nullable="true" comment="Entity ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="AW_CA_HISTORY_LOG_CUSTOMER_ID" indexType="btree">
+            <column name="customer_id"/>
+        </index>
+        <index referenceId="AW_CA_HISTORY_LOG_CUSTOMER_NAME" indexType="btree">
+            <column name="customer_name"/>
+        </index>
+    </table>
+    <table name="aw_ca_company_admin_candidate" resource="default" engine="innodb" comment="AW Company Admin Candidate Table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Candidate Id"/>
+        <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Customer Id"/>
+        <column xsi:type="int" name="company_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Company Id"/>
+        <column xsi:type="varchar" name="status" nullable="true" length="32"
+                comment="Status"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="AW_CA_COMPANY_ADM_CANDIDATE_CSTR_ID_CSTR_ENTT_ENTT_ID"
+                    table="aw_ca_company_admin_candidate" column="customer_id" referenceTable="customer_entity"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="AW_CA_COMPANY_ADMIN_CANDIDATE_COMPANY_ID_AW_CA_COMPANY_ID"
+                    table="aw_ca_company_admin_candidate" column="company_id" referenceTable="aw_ca_company" referenceColumn="id"
+                    onDelete="CASCADE"/>
+        <index referenceId="AW_CA_COMPANY_ADMIN_CANDIDATE_CUSTOMER_ID" indexType="btree">
+            <column name="customer_id"/>
+        </index>
+        <index referenceId="AW_CA_COMPANY_ADMIN_CANDIDATE_COMPANY_ID" indexType="btree">
+            <column name="company_id"/>
+        </index>
+    </table>
+     <table name="aw_ca_unit" resource="default" engine="innodb" comment="aheadworks CA unit table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+                <column name="id"/>
+        </constraint>
+        <column xsi:type="int" name="company_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Company Id"/>
+        <column name="parent_id" nullable="true" xsi:type="int" comment="Parent Id" identity="false"/>
+        <column name="unit_title" nullable="false" xsi:type="varchar" length="255" comment="Role Name"/>
+        <column name="unit_description" nullable="true" xsi:type="text" comment="Unit Description"/>
+        <column name="path" nullable="true" xsi:type="varchar" length="255" comment="Path"/>
+        <column name="sort_order" xsi:type="int" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Sort Order"/>
+        <constraint xsi:type="foreign" referenceId="AW_CA_UNIT_COMPANY_ID_AW_CA_COMPANY_ID" table="aw_ca_unit"
+                    column="company_id" referenceTable="aw_ca_company" referenceColumn="id" onDelete="CASCADE"/>
+        <index referenceId="AW_CA_UNIT_COMPANY_ID" indexType="btree">
+            <column name="company_id"/>
+        </index>
+    </table>
+</schema>

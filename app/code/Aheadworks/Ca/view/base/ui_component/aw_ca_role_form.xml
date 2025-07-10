@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">aw_ca_role_form.awCaRoleProvider</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Role</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back" class="Aheadworks\Ca\Block\Adminhtml\Role\Edit\Button\Back"/>
+            <button name="save" class="Aheadworks\Ca\Block\Adminhtml\Role\Edit\Button\Save"/>
+        </buttons>
+        <namespace>aw_ca_role_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>aw_ca_role_form.awCaRoleProvider</dep>
+        </deps>
+    </settings>
+    <dataSource name="awCaRoleProvider">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="aw_ca/role/save"/>
+        </settings>
+        <dataProvider class="Aheadworks\Ca\Ui\DataProvider\Role\FormDataProvider"/>
+    </dataSource>
+    <fieldset name="general" sortOrder="10">
+        <settings>
+            <collapsible>false</collapsible>
+            <label>General</label>
+        </settings>
+        <field name="id" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>id</dataScope>
+            </settings>
+        </field>
+        <field name="current_company_id" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>current_company_id</dataScope>
+            </settings>
+        </field>
+        <field name="name" sortOrder="10" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Role Name</label>
+                <dataScope>name</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="default" sortOrder="20" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">0</item>
+                    <item name="imports" xsi:type="array">
+                        <item name="disabled" xsi:type="string">${ $.provider }:data.is_default_disabled</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Set as Default</label>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="order_base_amount_limit" sortOrder="30" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Order Limit per Role</label>
+                <dataScope>order_base_amount_limit</dataScope>
+                <validation>
+                    <rule name="validate-zero-or-greater" xsi:type="boolean">true</rule>
+                    <rule name="validate-number" xsi:type="boolean">true</rule>
+                </validation>
+                <tooltip>
+                    <description translate="true">Enter starting order value that must be approved by company admin. Leave empty to disable order limit. Set to zero to require approval for every order.</description>
+                </tooltip>
+            </settings>
+        </field>
+        <field name="permissions" sortOrder="40" formElement="input" component="Aheadworks_Ca/js/ui/form/element/tree">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Permissions to the Role</label>
+                <dataScope>permissions</dataScope>
+                <componentType>field</componentType>
+                <additionalClasses>
+                    <class name="aw-ca__tree">true</class>
+                </additionalClasses>
+            </settings>
+        </field>
+    </fieldset>
+</form>

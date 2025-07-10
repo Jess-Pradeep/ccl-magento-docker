@@ -1,0 +1,25 @@
+<?php
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+use Aheadworks\Ctq\Block\Adminhtml\Quote\Edit\CustomerAccount;
+
+/**
+ * @var CustomerAccount $block
+ * @var SecureHtmlRenderer $secureRenderer
+ */
+?>
+<?php if ($block->checkIfCustomerAccountMustBeCreated()): ?>
+    <div class="admin__page-section-title <?= $block->escapeHtmlAttr($block->getHeaderCssClass()) ?>">
+        <span class="title"><?= $block->escapeHtml($block->getHeaderText()) ?></span>
+        <div class="actions"></div>
+    </div>
+    <div id="customer_account_fields" class="admin__page-section-content">
+        <?= $block->getForm()->getHtml() ?>
+    </div>
+    <?php $scriptString = <<<script
+        require(["prototype", "Aheadworks_Ctq/js/quote/edit/form"], function(){
+            quote.accountFieldsBind($('customer_account_fields'));
+        });
+    script;
+    ?>
+    <?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>
+<?php endif; ?>

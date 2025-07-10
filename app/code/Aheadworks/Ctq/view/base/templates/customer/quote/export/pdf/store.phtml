@@ -1,0 +1,27 @@
+<?php
+/* @var $block \Magento\Framework\View\Element\Template */
+/* @var $viewModel \Aheadworks\Ctq\ViewModel\Customer\Quote\DataProvider */
+/* @var $storeViewModel \Aheadworks\Ctq\ViewModel\Customer\Export\Quote\Store */
+/* @var $cart \Magento\Quote\Model\Quote */
+
+// @codingStandardsIgnoreFile
+$viewModel = $block->getDataProviderViewModel();
+$viewModel->setMethodToLocateQuote($block->getMethodToLocateQuote());
+$storeViewModel = $block->getStoreViewModel();;
+$cart = $viewModel->getCart();
+?>
+<?php if (trim($storeViewModel->getFormattedStoreInformation($cart))): ?>
+    <div class="block-title">
+        <span><?= $block->escapeHtml(__('Store Information')) ?></span>
+    </div>
+    <div class="store-information">
+        <?= /* @escapeNotVerified */ $storeViewModel->getFormattedStoreInformation($cart) ?>
+    </div>
+
+    <style type="text/css">
+        .block-title {
+            margin: 2.5rem 0 0.5rem 0;
+            text-decoration: underline;
+        }
+    </style>
+<?php endif; ?>

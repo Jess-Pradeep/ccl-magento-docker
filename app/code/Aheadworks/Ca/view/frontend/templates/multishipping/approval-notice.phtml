@@ -1,0 +1,14 @@
+<?php
+/** @var Magento\Framework\View\Element\Template $block */
+/** @var Aheadworks\Ca\ViewModel\Multishipping\ApprovalNotice $noticeViewModel */
+$noticeViewModel = $block->getNoticeViewModel();
+
+//@codingStandardsIgnoreFile
+?>
+<?php if ($noticeViewModel->isNoticeVisible()): ?>
+    <div class="aw_ca__order-approval-notice">
+        <span>
+            <?= $block->escapeHtml(__('Your order will be sent to the company admin for approval if the order amount per shipping address exceeds the set limit')) ?>
+        </span>
+    </div>
+<?php endif ?>

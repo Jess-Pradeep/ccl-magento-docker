@@ -1,0 +1,17 @@
+<!--@subject {{trans 'Your request to change Company Administrator has been declined'}}@-->
+<!--@vars {
+"var company_admin_name": "Company Admin Name"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<p>
+    {{trans 'Dear %company_admin_name,' company_admin_name=$company_admin_name}}
+</p>
+<p>
+    {{trans 'Your request to change Company Administrator has been declined.'}}
+</p>
+<p>
+    {{trans 'Please, contact your Sales Representative for more information.'}}
+</p>
+
+{{template config_path="design/email/footer_template"}}

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="aw_ctq_quote_external_header"/>
+    <update handle="aw_ctq_history_renderers"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Aheadworks\Ctq\Block\Customer\Quote\History"
+                   name="aw_ctq.customer.quote.history"
+                   template="Aheadworks_Ctq::customer/quote/history.phtml"
+                   cacheable="false">
+                <arguments>
+                    <argument name="method_to_locate_quote" xsi:type="string">locate_by_hash</argument>
+                    <argument name="data_provider_view_model" xsi:type="object">Aheadworks\Ctq\ViewModel\Customer\Quote\DataProvider</argument>
+                    <argument name="history_list_view_model" xsi:type="object">Aheadworks\Ctq\ViewModel\History\HistoryList</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="aw_ctq.quote.history.actions.renderers.comment">
+            <arguments>
+                <argument name="comment_view_model" xsi:type="object">Aheadworks\Ctq\ViewModel\Customer\Quote\External\Comment</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

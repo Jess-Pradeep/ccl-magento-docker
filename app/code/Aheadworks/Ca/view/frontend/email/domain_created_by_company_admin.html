@@ -1,0 +1,18 @@
+<!--@subject {{trans 'A new company domain request'}}@-->
+{{template config_path="design/email/header_template"}}
+
+<p>
+    {{trans 'Dear %sales_representative_name,' sales_representative_name=$sales_representative_name}}<br />
+    {{trans
+    'Domain <strong>%domain_name</strong> in company <strong>%company_name</strong> was set to status Pending.'
+    domain_name=$domain.getName() company_name=$company.getName()
+    |raw}}
+</p>
+<p>
+    {{trans
+    'Please set it to Active or Inactive in your <a href="%company_url">Admin Panel</a>.'
+    company_url=$company_url
+    |raw}}
+</p>
+
+{{template config_path="design/email/footer_template"}}

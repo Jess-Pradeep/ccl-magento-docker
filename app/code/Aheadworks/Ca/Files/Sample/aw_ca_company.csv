@@ -1,0 +1,2 @@
+"name","status","legal_name","tax_id","re_seller_id","street","city","postcode","telephone","country_id","region_id","region","email","notes","admin_firstname","admin_lastname","admin_email","admin_group_id","admin_website_id","admin_store_id","admin_job_title","admin_telephone"
+"Test name 1","approved","Legal name 1","11111","11111","Some Address","Huntsville","35801","","US","1","","comp1@test.com","","firstname1","lastname1","admin1@test.com","1","1","1","Some job title","1111111"

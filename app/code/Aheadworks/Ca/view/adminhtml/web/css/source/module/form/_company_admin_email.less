@@ -1,0 +1,32 @@
+//
+//  Company admin email
+//  _____________________________________________
+
+.aw_ca-company-edit {
+    .collection-wrapper.email {
+        position: relative;
+        padding-bottom: 0;
+
+        .change-company-admin {
+            position: absolute;
+            top: 3rem;
+            left: calc(~'(100%) * 0.75 + 10px');
+        }
+
+        > *:last-child {
+            margin-bottom: 3rem;
+        }
+    }
+
+    .aw-ca__data-grid-radio-cell-inner {
+        .admin__control-radio {
+            &:checked {
+                + label {
+                    &:after {
+                        top: 3px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Aheadworks\Ca\ViewModel\Order\View\Button\AbstractButton $viewModel */
+
+// @codingStandardsIgnoreFile
+$viewModel = $block->getOrderButtonViewModel();
+?>
+<?php if ($viewModel->isButtonVisible()) : ?>
+    <a href="<?= $block->escapeUrl($viewModel->getSubmitUrl()) ?>"
+       class="action"
+       rel="noopener">
+        <span><?= $block->escapeHtml($viewModel->getButtonTitle()) ?></span>
+    </a>
+<?php endif ?>

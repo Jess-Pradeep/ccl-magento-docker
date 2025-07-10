@@ -1,0 +1,66 @@
+<?php
+/* @var $block \Magento\Framework\View\Element\Template */
+/* @var $viewModel \Aheadworks\Ctq\ViewModel\Customer\Quote\DataProvider */
+/* @var $quoteViewModel \Aheadworks\Ctq\ViewModel\Customer\Export\Quote */
+
+// @codingStandardsIgnoreFile
+$viewModel = $block->getDataProviderViewModel();
+$viewModel->setMethodToLocateQuote($block->getMethodToLocateQuote());
+$quoteViewModel = $block->getQuoteViewModel();
+$quote = $viewModel->getQuote();
+?>
+
+<h1 class="title">
+    <span><?= $block->escapeHtml($quote->getName()) ?></span>
+</h1>
+<div class="export-date">
+    <span><?= $block->escapeHtml(__('Date of export: ')) ?><?= $block->escapeHtml($viewModel->getCurrentDate()) ?></span>
+</div>
+<table class="quote-details">
+    <tr>
+        <td><?= $block->escapeHtml(__('Quote #')) ?></td>
+        <td><?= $block->escapeHtml($quote->getId()) ?></td>
+    </tr>
+    <tr>
+        <td><?= $block->escapeHtml(__('Status')) ?></td>
+        <td><?= $block->escapeHtml($quoteViewModel->getStatusLabel($quote->getStatus())) ?></td>
+    </tr>
+    <tr>
+        <td><?= $block->escapeHtml(__('Created')) ?></td>
+        <td><?= $block->escapeHtml($quoteViewModel->getCreatedAtFormatted($quote->getCreatedAt())) ?></td>
+    </tr>
+    <tr>
+        <td><?= $block->escapeHtml(__('Customer Name')) ?></td>
+        <td><?= $block->escapeHtml($quoteViewModel->getCustomerName($quote)) ?></td>
+    </tr>
+    <?php if ($quoteViewModel->getCompanyName($quote->getCustomerId())): ?>
+        <tr>
+            <td><?= $block->escapeHtml(__('Company Name')) ?></td>
+            <td><?= $block->escapeHtml($quoteViewModel->getCompanyName($quote->getCustomerId())) ?></td>
+        </tr>
+    <?php endif; ?>
+    <tr>
+        <td><?= $block->escapeHtml(__('Customer Email')) ?></td>
+        <td><?= $block->escapeHtml($quote->getCustomerEmail()) ?></td>
+    </tr>
+    <?= /* @noEscape */ $block->getChildHtml('extra.quote.column') ?>
+</table>
+
+<style type="text/css">
+    .title {
+        text-align: center;
+    }
+    .export-date {
+        text-align: right;
+    }
+    .quote-details {
+        width: 50%;
+        border: 1px solid #CDCDCD;
+        border-collapse: collapse;
+        font-size: 10pt;
+    }
+    .quote-details td {
+        padding: 5px;
+        border: 1px solid #CDCDCD;
+    }
+</style>

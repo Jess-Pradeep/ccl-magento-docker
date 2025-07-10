@@ -1,0 +1,2 @@
+company_name,company_email,currency,amount_to_add,po_number,comment_to_customer,comment_to_admin
+Costello Company,testcomp@mail.com,USD,345,1,Comment for customer,Comment for admin

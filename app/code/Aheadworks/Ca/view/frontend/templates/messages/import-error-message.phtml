@@ -1,0 +1,18 @@
+<?php
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\Escaper;
+
+/**
+ * @var Template $block
+ * @var Escaper $escaper
+ */
+$messages = $block->getData('messages');
+?>
+<div class="aw_ca__import-error-container">
+    <span class="title"><?= $escaper->escapeHtml($block->getData('title')) ?></span>
+    <div class="errors">
+        <?php foreach ($messages as $message): ?>
+            <span class="error"><?= $escaper->escapeHtml($message) ?></span>
+        <?php endforeach; ?>
+    </div>
+</div>

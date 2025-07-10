@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Aheadworks_UiComponents:etc/ui_definition.xsd">
+    <component name="export" class="Aheadworks\UiComponents\Component\Export"/>
+</components>

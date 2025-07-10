@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Aheadworks_Ca::css/roles_tree.css" />
+    </head>
+    <update handle="customer_account"/>
+    <body>
+        <referenceBlock name="customer_account_navigation">
+            <action method="setActive">
+                <argument name="path" xsi:type="string">aw_ca/unit</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content" htmlClass="aw-ca-unit-create" htmlTag="div">
+            <block class="Aheadworks\Ca\Block\Form"
+                   name="aw_ca.unit.edit"
+                   cacheable="false">
+                <arguments>
+                    <argument name="form_view_model" xsi:type="object">Aheadworks\Ca\ViewModel\Unit\Form</argument>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="awCaForm" xsi:type="array">
+                                <item name="component" xsi:type="string">Aheadworks_Ca/js/ui/form/form</item>
+                                <item name="deps" xsi:type="array">
+                                    <item name="0" xsi:type="string">awCaUnitProvider</item>
+                                </item>
+                                <item name="dataScope" xsi:type="string">data</item>
+                                <item name="children" xsi:type="array">
+                                    <item name="fieldset" xsi:type="array">
+                                        <item name="component" xsi:type="string">Magento_Ui/js/form/components/fieldset</item>
+                                        <item name="label" xsi:type="string" translate="true">General Information</item>
+                                        <item name="template" xsi:type="string">Aheadworks_Ca/form/element/fieldset</item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="id" xsi:type="array">
+                                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                                <item name="dataScope" xsi:type="string">id</item>
+                                                <item name="provider" xsi:type="string">awCaUnitProvider</item>
+                                                <item name="template" xsi:type="string">ui/form/field</item>
+                                                <item name="label" xsi:type="string" translate="true">Id</item>
+                                                <item name="sortOrder" xsi:type="number">5</item>
+                                                <item name="visible" xsi:type="boolean">false</item>
+                                            </item>
+                                            <item name="parent_id" xsi:type="array">
+                                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                                <item name="dataScope" xsi:type="string">parent_id</item>
+                                                <item name="provider" xsi:type="string">awCaUnitProvider</item>
+                                                <item name="template" xsi:type="string">ui/form/field</item>
+                                                <item name="label" xsi:type="string" translate="true">Parent Id</item>
+                                                <item name="sortOrder" xsi:type="number">7</item>
+                                                <item name="visible" xsi:type="boolean">false</item>
+                                            </item>
+                                            <item name="unit_title" xsi:type="array">
+                                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                                <item name="dataScope" xsi:type="string">unit_title</item>
+                                                <item name="provider" xsi:type="string">awCaUnitProvider</item>
+                                                <item name="template" xsi:type="string">ui/form/field</item>
+                                                <item name="label" xsi:type="string" translate="true">Unit Title</item>
+                                                <item name="validation" xsi:type="array">
+                                                    <item name="required-entry" xsi:type="boolean">true</item>
+                                                </item>
+                                                <item name="sortOrder" xsi:type="number">10</item>
+                                            </item>
+                                            <item name="unit_description" xsi:type="array">
+                                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/textarea</item>
+                                                <item name="dataScope" xsi:type="string">unit_description</item>
+                                                <item name="provider" xsi:type="string">awCaUnitProvider</item>
+                                                <item name="template" xsi:type="string">ui/form/field</item>
+                                                <item name="label" xsi:type="string" translate="true">Unit Description</item>
+                                                <item name="validation" xsi:type="array">
+                                                    <item name="required-entry" xsi:type="boolean">true</item>
+                                                </item>
+                                                <item name="sortOrder" xsi:type="number">20</item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="save" xsi:type="array">
+                                        <item name="component" xsi:type="string">Magento_Ui/js/form/components/button</item>
+                                        <item name="provider" xsi:type="string">awCaUnitProvider</item>
+                                        <item name="title" xsi:type="string" translate="true">Save</item>
+                                        <item name="sortOrder" xsi:type="number">30</item>
+                                        <item name="buttonClasses" xsi:type="string">action primary</item>
+                                        <item name="actions" xsi:type="array">
+                                            <item name="0" xsi:type="array">
+                                                <item name="targetName" xsi:type="string">awCaForm</item>
+                                                <item name="actionName" xsi:type="string">save</item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="cancel" xsi:type="array">
+                                        <item name="component" xsi:type="string">Aheadworks_Ca/js/customer/redirect-button</item>
+                                        <item name="provider" xsi:type="string">awCaUnitProvider</item>
+                                        <item name="title" xsi:type="string" translate="true">Cancel</item>
+                                        <item name="sortOrder" xsi:type="number">30</item>
+                                        <item name="buttonClasses" xsi:type="string">action primary</item>
+                                        <item name="urlToRedirect" xsi:type="string">aw_ca/unit/</item>
+                                        <item name="actions" xsi:type="array">
+                                            <item name="0" xsi:type="array">
+                                                <item name="targetName" xsi:type="string">awCaForm</item>
+                                                <item name="actionName" xsi:type="string">back</item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="awCaUnitProvider" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+                                <item name="clientConfig" xsi:type="array">
+                                    <item name="urls" xsi:type="array">
+                                        <item name="save" xsi:type="url" path="aw_ca/unit/save"/>
+                                        <item name="cancel" xsi:type="url" path="aw_ca/unit/"/>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

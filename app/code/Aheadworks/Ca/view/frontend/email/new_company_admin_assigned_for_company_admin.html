@@ -1,0 +1,25 @@
+<!--@subject {{trans 'You\'ve been assigned as a new Company Administrator to %company_name' company_name=$company_name}}@-->
+<!--@vars {
+"var company_name": "Company Name",
+"var user_name": "Customer Name"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<p>
+    {{trans 'Dear %user_name,' user_name=$user_name}}<br />
+    {{trans 'You have been assigned as a new Company Administrator to <strong>%company_name</strong>' company_name=$company_name |raw}}.<br />
+</p>
+<p>
+    {{trans 'Once you set up your account, as a Company Administrator you will have the following integration features available:'}}
+</p>
+<ul>
+    <li>{{trans 'The entire balance of Store Credits/Reward Points is assigned to your account (this is the overall balance of the company)'}}</li>
+    <li>{{trans 'Notifications about Store Credits/Points come only to the Company Admin email and are not available to the Company User)'}}</li>
+</ul>
+<p>
+    {{trans
+    'You can find information about all features in this <a href="https://aheadworks.com/resources/company-accounts/user-manual-company-accounts">article</a>.'
+    |raw}}
+</p>
+
+{{template config_path="design/email/footer_template"}}

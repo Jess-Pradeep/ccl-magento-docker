@@ -1,0 +1,58 @@
+<?php
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\Escaper;
+use Aheadworks\Ca\ViewModel\User\Import;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+
+/**
+ * @var Template $block
+ * @var Escaper $escaper
+ * @var Import $viewModel
+ * @var SecureHtmlRenderer $secureRenderer
+ */
+$viewModel = $block->getData('view_model');
+?>
+<form id="form-import"
+      action="<?= $escaper->escapeUrl($viewModel->getStartImportLink()) ?>"
+      class="form"
+      enctype="multipart/form-data"
+      method="post"
+      novalidate="novalidate">
+    <fieldset class="fieldset">
+        <div class="import-notice">
+            <?= $escaper->escapeHtml(__('File must be in .csv format and include user related columns')) ?>
+            <a class="action download-sample"
+               href="<?= $escaper->escapeUrl($viewModel->getDownloadSampleLink()) ?>">
+                <?= $escaper->escapeHtml(__('Download Sample')) ?>
+            </a>
+        </div>
+        <input type="file"
+               data-validate="{required:true}"
+               class="field file required required-entry _required"
+               name="csv-file-to-import"
+               id="csv-file-to-import"
+               accept=".csv">
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button id="import-add-to-list"
+                    class="action primary"
+                    type="submit">
+                <span><?= $escaper->escapeHtml(__('Import')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+<?php
+$scriptString = <<<script
+    require([
+        "jquery",
+        "mage/mage"
+    ], function($){
+        var dataForm = $('#form-import');
+        dataForm.mage('validation', {
+        });
+    });
+script;
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>

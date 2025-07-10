@@ -1,0 +1,38 @@
+type Customer {
+    aw_credit_limit: CreditLimitInfo @doc(description: "Credit limit info for customer") @resolver(class: "\\Aheadworks\\CreditLimitGraphQl\\Model\\Resolver\\Customer\\CreditLimit")
+}
+
+input CartItemInput {
+    aw_cl_amount: Float @doc(description: "Amount for credit limit balance unit")
+}
+
+type CreditLimitInfo @doc(description: "Credit limit info for customer") {
+    totals: TotalList @doc(description: "Totals")
+    credit_history: [CreditHistory] @doc(description: "Credit history list") @resolver(class: "\\Aheadworks\\CreditLimitGraphQl\\Model\\Resolver\\Customer\\CreditHistory")
+}
+
+type TotalList @doc(description: "Total list")  {
+    credit_terms: Int @doc(description: "Credit terms (payment period in days)")
+    due_date: String @doc(description: "Due date")
+    credit_balance: CreditMoney @doc(description: "Credit balance")
+    available_credit: CreditMoney @doc(description: "Available credit")
+    credit_limit: CreditMoney @doc(description: "Credit limit")
+}
+
+type CreditHistory @doc(description: "Credit history record") {
+    date: String @doc(description: "Date")
+    action: String @doc(description: "Action")
+    amount: CreditMoney @doc(description: "Amount")
+    credit_balance: CreditMoney @doc(description: "Credit balance")
+    available_credit: CreditMoney @doc(description: "Available credit")
+    credit_limit: CreditMoney @doc(description: "Credit limit")
+    purchase_order: String @doc(description: "Purchase order number")
+    updated_by: String @doc(description: "Updated by")
+    comment_to_admin: String @doc(description: "Comment to admin")
+    comment_to_customer: String @doc(description: "Comment to customer")
+}
+
+type CreditMoney @doc(description: "Defines a monetary value, including a numeric value and a currency code.") {
+    value: String @doc(description: "A number expressing a monetary value.")
+    currency: String @doc(description: "A three-letter currency code, such as USD or EUR.")
+}

@@ -1,0 +1,16 @@
+<?php
+use Magento\Backend\Block\Template;
+
+/**
+ * @var Template $block
+ */
+?>
+
+<div class="admin__page-section-title">
+    <span class="title"><?= $block->escapeHtml($block->getHeaderText()) ?></span>
+    <?php if($block->getButtonsHtml()): ?>
+        <div class="actions"><?= /* @noEscape */ $block->getButtonsHtml() ?></div>
+    <?php endif; ?>
+</div>
+
+<?= /* @noEscape */ $block->getChildHtml('', true) ?>

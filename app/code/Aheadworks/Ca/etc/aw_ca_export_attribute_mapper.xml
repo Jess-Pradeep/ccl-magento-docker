@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="aw_ca_export_attribute_mapper.xsd">
+    <entity type="aw_ca_company">
+        <fieldset name="company" csvFieldPrefix="" tableName="main_table">
+            <attribute code="id" dataType="text" is_filterable="false"/>
+            <attribute code="root_group_id" dataType="text" is_filterable="false"/>
+            <attribute code="status" dataType="text" is_filterable="true"
+                       title="Status"
+                       frontendInput="select"
+                       sourceModel="Aheadworks\Ca\Model\Export\Source\Company\Status"/>
+            <attribute code="name" dataType="text" is_filterable="true"
+                       title="Company Name"
+                       frontendInput="text"/>
+            <attribute code="legal_name" dataType="text" is_filterable="true"
+                       title="Company Legal Name"
+                       frontendInput="text"/>
+            <attribute code="tax_id" dataType="text" is_filterable="false"/>
+            <attribute code="re_seller_id" dataType="text" is_filterable="false"/>
+            <attribute code="street" dataType="text" is_filterable="false"/>
+            <attribute code="city" dataType="text" is_filterable="false"/>
+            <attribute code="postcode" dataType="text" is_filterable="false"/>
+            <attribute code="telephone" dataType="text" is_filterable="false"/>
+            <attribute code="country_id" dataType="text" is_filterable="false"/>
+            <attribute code="region_id" dataType="text" is_filterable="false"/>
+            <attribute code="region" dataType="text" is_filterable="false"/>
+            <attribute code="email" dataType="text" is_filterable="true"
+                       title="Company Email"
+                       frontendInput="text"/>
+            <attribute code="notes" dataType="text" is_filterable="false"/>
+            <attribute code="sales_representative_id" dataType="text" is_filterable="false"/>
+            <attribute code="customer_group_id" dataType="text" is_filterable="false"/>
+            <attribute code="is_allowed_to_quote" dataType="text" is_filterable="false"/>
+            <attribute code="is_approved_notification_sent" dataType="text" is_filterable="false"/>
+            <attribute code="is_declined_notification_sent" dataType="text" is_filterable="false"/>
+            <attribute code="created_at" dataType="text" is_filterable="false"/>
+            <attribute code="updated_at" dataType="text" is_filterable="false"/>
+            <attribute code="allowed_payment_methods" dataType="array" dependentModule="Aheadworks_PaymentRestrictions" is_filterable="false"/>
+            <attribute code="allowed_shipping_methods" dataType="array" dependentModule="Aheadworks_ShippingRestrictions" is_filterable="false"/>
+            <attribute code="credit_limit" dataType="text" dependentModule="Aheadworks_CreditLimit" is_filterable="false"/>
+        </fieldset>
+        <fieldset name="company_admin" csvFieldPrefix="admin" tableName="customer_entity">
+            <attribute code="firstname" dataType="text" is_filterable="false"/>
+            <attribute code="lastname" dataType="text" is_filterable="false"/>
+            <attribute code="email" dataType="text" is_filterable="false"/>
+            <attribute code="group_id" dataType="text" is_filterable="false"/>
+            <attribute code="website_id" dataType="text" is_filterable="false"/>
+            <attribute code="store_id" dataType="text" is_filterable="false"/>
+        </fieldset>
+        <fieldset name="root_company_user" csvFieldPrefix="admin" tableName="aw_ca_company_user">
+            <attribute code="job_title" dataType="text" is_filterable="false"/>
+            <attribute code="telephone" dataType="text" is_filterable="false"/>
+        </fieldset>
+    </entity>
+</config>

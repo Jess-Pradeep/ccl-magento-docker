@@ -1,0 +1,100 @@
+{
+    "aw_cl_customer_group_credit_limit": {
+        "column": {
+            "id": true,
+            "customer_group_id": true,
+            "website_id": true,
+            "credit_limit": true
+        },
+        "index": {
+            "AW_CL_CUSTOMER_GROUP_CREDIT_LIMIT_CUSTOMER_GROUP_ID": true,
+            "AW_CL_CUSTOMER_GROUP_CREDIT_LIMIT_WEBSITE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_AE5FEFFB163ED891CDD390152EB32B9E": true,
+            "AW_CL_CSTR_GROUP_CREDIT_LIMIT_WS_ID_STORE_WS_WS_ID": true
+        }
+    },
+    "aw_cl_credit_summary": {
+        "column": {
+            "summary_id": true,
+            "website_id": true,
+            "customer_id": true,
+            "credit_limit": true,
+            "is_allowed_to_exceed": true,
+            "credit_balance": true,
+            "currency": true,
+            "last_payment_date": true,
+            "company_id": true,
+            "payment_period": true,
+            "due_date": true,
+            "last_due_date": true,
+            "negative_balance_date": true
+        },
+        "index": {
+            "AW_CL_CREDIT_SUMMARY_CUSTOMER_ID": true,
+            "AW_CL_CREDIT_SUMMARY_WEBSITE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AW_CL_CREDIT_SUMMARY_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
+            "AW_CL_CREDIT_SUMMARY_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true
+        }
+    },
+    "aw_cl_transaction": {
+        "column": {
+            "id": true,
+            "summary_id": true,
+            "company_id": true,
+            "created_at": true,
+            "action": true,
+            "amount": true,
+            "credit_limit": true,
+            "credit_balance": true,
+            "credit_available": true,
+            "credit_currency": true,
+            "action_currency": true,
+            "rate_to_credit_currency": true,
+            "rate_to_action_currency": true,
+            "po_number": true,
+            "updated_by": true,
+            "comment_to_customer": true,
+            "comment_to_customer_placeholder": true,
+            "comment_to_admin": true
+        },
+        "index": {
+            "AW_CL_TRANSACTION_SUMMARY_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AW_CL_TRANSACTION_SUMMARY_ID_AW_CL_CREDIT_SUMMARY_SUMMARY_ID": true
+        }
+    },
+    "aw_cl_transaction_entity": {
+        "column": {
+            "transaction_id": true,
+            "entity_type": true,
+            "entity_id": true,
+            "entity_label": true
+        },
+        "index": {
+            "AW_CL_TRANSACTION_ENTITY_TRANSACTION_ID_ENTITY_TYPE_ENTITY_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AW_CL_TRANSACTION_ENTITY_TRANSACTION_ID_AW_CL_TRANSACTION_ID": true
+        }
+    },
+    "aw_cl_job": {
+        "column": {
+            "id": true,
+            "type": true,
+            "configuration": true,
+            "status": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

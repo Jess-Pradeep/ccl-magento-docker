@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="config">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="unbounded" name="entity" type="entityType" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="entityType">
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="unbounded" name="fieldset" type="fieldset" />
+        </xs:sequence>
+        <xs:attribute name="type" type="xs:string" use="required" />
+    </xs:complexType>
+    <xs:complexType name="fieldset">
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="unbounded" name="attribute" type="attributeType" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="csvFieldPrefix" type="xs:string" use="optional" />
+        <xs:attribute name="tableName" type="xs:string" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="attributeType">
+        <xs:attribute name="code" type="xs:string" use="required" />
+        <xs:attribute name="is_filterable" type="xs:boolean" use="required" />
+        <xs:attribute name="dataType" type="xs:string" use="required" />
+        <xs:attribute name="title" type="xs:string" /> <!-- Used in case is_filterable is true (Title column) -->
+        <xs:attribute name="frontendInput" type="xs:string" /> <!-- Used in case is_filterable is true (Input type) -->
+        <xs:attribute name="sourceModel" type="xs:string" /> <!-- Used in case is_filterable is true (Source model for select type) -->
+        <xs:attribute name="dependentModule" type="xs:string" use="optional" />
+    </xs:complexType>
+</xs:schema>

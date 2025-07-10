@@ -1,0 +1,321 @@
+Save,Save
+Back,Back
+"Export to PDF","Export to PDF"
+"Please select a customer","Please select a customer"
+ID,ID
+Name,Name
+Email,Email
+Phone,Phone
+"ZIP/Post Code","ZIP/Post Code"
+Country,Country
+State/Province,State/Province
+"Signed-up Point","Signed-up Point"
+Website,Website
+"Edit Quote #%1","Edit Quote #%1"
+"Edit ""%1""","Edit ""%1"""
+"Create New Quote for %1 in %2","Create New Quote for %1 in %2"
+"Create New Quote in %1","Create New Quote in %1"
+"Create New Quote for %1","Create New Quote for %1"
+"Create New Quote for New Customer","Create New Quote for New Customer"
+"Comments and History","Comments and History"
+"The information in this tab has been changed.","The information in this tab has been changed."
+"This tab contains invalid data. Please resolve this before saving.","This tab contains invalid data. Please resolve this before saving."
+Loading...,Loading...
+"Order Totals","Order Totals"
+"Please select products","Please select products"
+"Add Selected Product(s) to Quote","Add Selected Product(s) to Quote"
+Product,Product
+SKU,SKU
+Price,Price
+Select,Select
+Quantity,Quantity
+"Quote & Account Information","Quote & Account Information"
+Products,Products
+"Sorry, you need permissions to view this content.","Sorry, you need permissions to view this content."
+"This product is disabled.","This product is disabled."
+Configure,Configure
+"This product does not have any configurable options","This product does not have any configurable options"
+"%1 with %2 discount each","%1 with %2 discount each"
+"%1 for %2","%1 for %2"
+"Shipping Address","Shipping Address"
+"Shipping Method","Shipping Method"
+"Shipping Information","Shipping Information"
+"Please select a store","Please select a store"
+"Quote Totals","Quote Totals"
+"Negotiated Discount","Negotiated Discount"
+"Sorry, %1 is not available for quoting. Please contact the merchant.","Sorry, %1 is not available for quoting. Please contact the merchant."
+"Invalid response data.","Invalid response data."
+"This Quote has been updated for some reasons. All details are in the History Log.","This Quote has been updated for some reasons. All details are in the History Log."
+"This quote doesn't exist.","This quote doesn't exist."
+Quotes,Quotes
+"Quote item ID is required.","Quote item ID is required."
+"Expiration date cannot be in the past","Expiration date cannot be in the past"
+"Invalid input date format %1","Invalid input date format %1"
+"Reminder date cannot be in the past","Reminder date cannot be in the past"
+"A total of %1 record(s) have been updated.","A total of %1 record(s) have been updated."
+"No records have been updated.","No records have been updated."
+"Quote was duplicated successfully","Quote was duplicated successfully"
+"Something went wrong while duplicating the quote","Something went wrong while duplicating the quote"
+"Quote was saved successfully","Quote was saved successfully"
+"Something went wrong while saving the quote","Something went wrong while saving the quote"
+"Page not found.","Page not found."
+"Something went wrong while save the quote.","Something went wrong while save the quote."
+"Sorry, the quote is no more available, please contact the merchant for further details.","Sorry, the quote is no more available, please contact the merchant for further details."
+"Quote %1","Quote %1"
+"This quote doesn't exist","This quote doesn't exist"
+"Something went wrong while duplicating the quote.","Something went wrong while duplicating the quote."
+"My Quotes","My Quotes"
+"We can't add this item.","We can't add this item."
+"Invalid Form Key. Please refresh the page.","Invalid Form Key. Please refresh the page."
+"Quote List","Quote List"
+"%1 was updated in your quote list.","%1 was updated in your quote list."
+"We can't update the item right now.","We can't update the item right now."
+"The quote item isn't found. Verify the item and try again.","The quote item isn't found. Verify the item and try again."
+"Something went wrong when requesting a quote.","Something went wrong when requesting a quote."
+"File not found.","File not found."
+"Please, add comment or(and) attach files.","Please, add comment or(and) attach files."
+"Unknown template type","Unknown template type"
+"The quote item cannot be loaded.","The quote item cannot be loaded."
+"Total Cost","Total Cost"
+"Catalog Total Price (Excl. Tax)","Catalog Total Price (Excl. Tax)"
+"Quote Subtotal (Excl. Tax)","Quote Subtotal (Excl. Tax)"
+"We could not add a product to cart by the ID ""%1"".","We could not add a product to cart by the ID ""%1""."
+"Shipping Address: ","Shipping Address: "
+"Billing Address: ","Billing Address: "
+"Proposed price cannot be less than 0 or higher than catalog price.","Proposed price cannot be less than 0 or higher than catalog price."
+"Impossible to update the quote. The customer was deleted.","Impossible to update the quote. The customer was deleted."
+"Please specify products.","Please specify products."
+"Quote ordered. Order #%1","Quote ordered. Order #%1"
+Undefined,Undefined
+"We couldn't change quote status.","We couldn't change quote status."
+"You can't request a quote.","You can't request a quote."
+"You can't update a quote.","You can't update a quote."
+"You can't change items order.","You can't change items order."
+"You can't buy the quote.","You can't buy the quote."
+"Could not post new comment.","Could not post new comment."
+"Current customer does not have an active quote list.","Current customer does not have an active quote list."
+"Please select a static block","Please select a static block"
+"All Groups","All Groups"
+Created,Created
+Updated,Updated
+Removed,Removed
+Reconfigured,Reconfigured
+"Quote Attribute","Quote Attribute"
+"Quote Status","Quote Status"
+"Quote Expiration Date","Quote Expiration Date"
+"Quote Reminder Date","Quote Reminder Date"
+"Quote Total Negotiated","Quote Total Negotiated"
+"Quote Total","Quote Total"
+"Product Comment","Product Comment"
+"Product Attribute","Product Attribute"
+"Product Qty","Product Qty"
+"Product Option","Product Option"
+"Shipping Address Attribute","Shipping Address Attribute"
+Comment,Comment
+"Comment Attachment","Comment Attachment"
+"Admin Quote","Admin Quote"
+Order,Order
+"Created Quote","Created Quote"
+"Updated Quote","Updated Quote"
+Seller,Seller
+Buyer,Buyer
+Edit,Edit
+"Edit Items Order","Edit Items Order"
+Export,Export
+"Ready to be Sent","Ready to be Sent"
+Sent,Sent
+Failed,Failed
+Doc,Doc
+"Percentage Discount","Percentage Discount"
+"Amount Discount","Amount Discount"
+"Proposed Subtotal","Proposed Subtotal"
+"Pending Seller Review","Pending Seller Review"
+"Declined by Seller","Declined by Seller"
+"Pending Buyer Review","Pending Buyer Review"
+"Declined by Buyer","Declined by Buyer"
+Ordered,Ordered
+Expired,Expired
+Accepted,Accepted
+"We can't update your shopping cart right now. Deal was settled.","We can't update your shopping cart right now. Deal was settled."
+"Gift Card","Gift Card"
+"some error","some error"
+"some exception","some exception"
+View,View
+"The following file types are allowed: %1","The following file types are allowed: %1"
+"Order Total","Order Total"
+"Incl. Tax","Incl. Tax"
+"The price must be a number.","The price must be a number."
+"The negotiated price cannot be higher than 100 or less than 0 percent.","The negotiated price cannot be higher than 100 or less than 0 percent."
+"The negotiated price cannot be less than 0 or higher than catalog price.","The negotiated price cannot be less than 0 or higher than catalog price."
+"Quote # %1","Quote # %1"
+Status,Status
+"Created From","Created From"
+"Customer Name","Customer Name"
+"Company Name","Company Name"
+"Customer Group","Customer Group"
+"Customer Email","Customer Email"
+"Admin User Quote Is Assigned To","Admin User Quote Is Assigned To"
+"Send CC To","Send CC To"
+"Reminder Date","Reminder Date"
+"Expiration Date","Expiration Date"
+"Show Prices to a Customer","Show Prices to a Customer"
+"Select from existing customer addresses:","Select from existing customer addresses:"
+"Add New Address","Add New Address"
+"You don't need to select a shipping address.","You don't need to select a shipping address."
+"Click to change shipping method","Click to change shipping method"
+"Sorry, no quotes are available at the moment.","Sorry, no quotes are available at the moment."
+"Get shipping methods and rates","Get shipping methods and rates"
+"You don't need to select a shipping method.","You don't need to select a shipping method."
+Cost,Cost
+"Catalog Price","Catalog Price"
+"Cart Price","Cart Price"
+Stock,Stock
+"Proposed Price","Proposed Price"
+Qty,Qty
+Subtotal,Subtotal
+"Estimated Tax","Estimated Tax"
+"Row Subtotal","Row Subtotal"
+Action,Action
+"No ordered items","No ordered items"
+"Update Items and Quantities","Update Items and Quantities"
+"Total %1 product(s)","Total %1 product(s)"
+Subtotal:,Subtotal:
+Comment:,Comment:
+"Tier Pricing","Tier Pricing"
+"Custom Price","Custom Price"
+"Please select","Please select"
+Remove,Remove
+Comments,Comments
+"History Log","History Log"
+"Type here to add your comment to this Quote","Type here to add your comment to this Quote"
+Send,Send
+"History log is not available at the moment.","History log is not available at the moment."
+"Quote Currency:","Quote Currency:"
+"Add/Hide shipping information","Add/Hide shipping information"
+"Negotiated Subtotal","Negotiated Subtotal"
+"Date of export: ","Date of export: "
+"Quote #","Quote #"
+"Product Name","Product Name"
+"Raw Subtotal","Raw Subtotal"
+"Store Information","Store Information"
+"<a href=""%1"">Sign In</a> to request a quote","<a href=""%1"">Sign In</a> to request a quote"
+"Subtotal (Excl. Tax)","Subtotal (Excl. Tax)"
+"Subtotal (Incl. Tax)","Subtotal (Incl. Tax)"
+"Items Ordered","Items Ordered"
+"Enter 0 to remove item","Enter 0 to remove item"
+"Quotation overview","Quotation overview"
+Code,Code
+"Total price","Total price"
+"Quotation ","Quotation "
+"Your data","Your data"
+"Quote #:","Quote #:"
+Order:,Order:
+Created:,Created:
+Expired:,Expired:
+"Quote Name","Quote Name"
+"Last Updated","Last Updated"
+Actions,Actions
+"You have created no quotes.","You have created no quotes."
+Items,Items
+"Items %1 to %2 of %3 total","Items %1 to %2 of %3 total"
+"%1 Item","%1 Item"
+"%1 Item(s)","%1 Item(s)"
+Page,Page
+Previous,Previous
+"You're currently reading page","You're currently reading page"
+Next,Next
+Show,Show
+"per page","per page"
+"You added %1 to your <a href=""%2"">quote list</a>.","You added %1 to your <a href=""%2"">quote list</a>."
+"Add to Quote","Add to Quote"
+"Quote List Items","Quote List Items"
+Item,Item
+"Update Quote List","Update Quote List"
+"You have no items in your quote list.","You have no items in your quote list."
+"Click <a href=""%1"">here</a> to continue shopping.","Click <a href=""%1"">here</a> to continue shopping."
+"Your quote number is: %1.","Your quote number is: %1."
+"The quote has been sent to the merchant.","The quote has been sent to the merchant."
+"Continue Shopping","Continue Shopping"
+Delete,Delete
+"Click here or drag and drop to add files.","Click here or drag and drop to add files."
+"File Uploading in Progress","File Uploading in Progress"
+"New Quote %quote_name","New Quote %quote_name"
+"Dear %user_name,","Dear %user_name,"
+"Your new Quote <a href=""%quote_url"">%quote_name</a> has been successfully created.","Your new Quote <a href=""%quote_url"">%quote_name</a> has been successfully created."
+"The Quote expires after %expiration_date.","The Quote expires after %expiration_date."
+"A Reminder About Expiring Quote ""%quote_name""","A Reminder About Expiring Quote ""%quote_name"""
+"Dear %customer_name,","Dear %customer_name,"
+"Your Quote %quote_name expires in %days_number_until_expired days.","Your Quote %quote_name expires in %days_number_until_expired days."
+"Click <a href=""%quote_url"">here</a> to use it.","Click <a href=""%quote_url"">here</a> to use it."
+"The Quote %quote_name assigned to you","The Quote %quote_name assigned to you"
+"Hello %user_name,","Hello %user_name,"
+"You are responsible for the Quote %quote_name.","You are responsible for the Quote %quote_name."
+"Click <a href=""%quote_url"">here</a> to check it.","Click <a href=""%quote_url"">here</a> to check it."
+"Updated Quote %quote_name","Updated Quote %quote_name"
+"The Quote <a href=""%quote_url"">%quote_name</a> has been updated. Please, see below.","The Quote <a href=""%quote_url"">%quote_name</a> has been updated. Please, see below."
+"A new Quote <a href=""%quote_url"">%quote_name</a> has been submitted by the buyer %buyer_name.","A new Quote <a href=""%quote_url"">%quote_name</a> has been submitted by the buyer %buyer_name."
+"Quote total is %total.","Quote total is %total."
+"Request a Quote","Request a Quote"
+"Changes have been made to this section that have not been saved.","Changes have been made to this section that have not been saved."
+Close,Close
+of,of
+"Item(s) in Quote","Item(s) in Quote"
+"View and Edit Quote List","View and Edit Quote List"
+"Quote Subtotal","Quote Subtotal"
+"Add Products","Add Products"
+"You have item changes","You have item changes"
+No,No
+Yes,Yes
+"Please enter a positive number.","Please enter a positive number."
+"Please enter a positive and non-decimal number.","Please enter a positive and non-decimal number."
+"Are you sure you would like to remove this item?","Are you sure you would like to remove this item?"
+"Enter 0 OR 1 and greater value","Enter 0 OR 1 and greater value"
+"Aheadworks Extensions","Aheadworks Extensions"
+"Cart to Quote","Cart to Quote"
+General,General
+"Enable ""Add to Quote"" button and Quote List","Enable ""Add to Quote"" button and Quote List"
+"Auto Acceptance of Quote","Auto Acceptance of Quote"
+"All Quotes will have the status ""Accepted"". Discount negotiation will be disabled. Customers can only buy or decline their Quotes.","All Quotes will have the status ""Accepted"". Discount negotiation will be disabled. Customers can only buy or decline their Quotes."
+"Acceptance Comment for Customer","Acceptance Comment for Customer"
+"Extra Block in .doc of Exported Quote","Extra Block in .doc of Exported Quote"
+"This block will be displayed below products in .doc file of exported quote.","This block will be displayed below products in .doc file of exported quote."
+"Customer Groups Allowed to Request a Quote","Customer Groups Allowed to Request a Quote"
+"Allow to Request a Quote From the Cart","Allow to Request a Quote From the Cart"
+"Default Quote Expiration Period, days","Default Quote Expiration Period, days"
+"Setting to 0 will disable the option","Setting to 0 will disable the option"
+"Minimum Subtotal for a Quote Request","Minimum Subtotal for a Quote Request"
+"Leave empty, so no minimum subtotal is required","Leave empty, so no minimum subtotal is required"
+"Message for Minimum Quote Subtotal","Message for Minimum Quote Subtotal"
+"File Attachments","File Attachments"
+"Max Upload File Size (Mb)","Max Upload File Size (Mb)"
+"Allow File Extensions","Allow File Extensions"
+"Email Notifications","Email Notifications"
+"Notification Email Sender","Notification Email Sender"
+"CC Email Recipients","CC Email Recipients"
+"Seller Quote Changes Template","Seller Quote Changes Template"
+"Email Recipient: Admin","Email Recipient: Admin"
+"Buyer Quote Changes Template","Buyer Quote Changes Template"
+"Email Recipient: Customer","Email Recipient: Customer"
+"Seller New Quote Template","Seller New Quote Template"
+"Buyer New Quote Template","Buyer New Quote Template"
+"Send Reminder in X Days Before Quote Expiration, days","Send Reminder in X Days Before Quote Expiration, days"
+"Email Template for Quote Reminder","Email Template for Quote Reminder"
+"Quote Admin Change Template","Quote Admin Change Template"
+"PDF Options","PDF Options"
+"Attach Quote in PDF to Email Notifications","Attach Quote in PDF to Email Notifications"
+"Custom Shipping","Custom Shipping"
+Title,Title
+"Add Quote","Add Quote"
+"All Store Views","All Store Views"
+Store,Store
+Decline,Decline
+"Shipping & Handling","Shipping & Handling"
+"Quote Summary","Quote Summary"
+"Thank you for your request!","Thank you for your request!"
+"Success Page","Success Page"
+"New quote","New quote"
+"Email Address","Email Address"
+"First Name","First Name"
+"Last Name","Last Name"
+"My Quote","My Quote"
+"Note, any discounts applied will be discarded","Note, any discounts applied will be discarded"

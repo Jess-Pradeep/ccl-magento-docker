@@ -1,0 +1,174 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\PageCache\Model\DepersonalizeChecker" type="Aheadworks\Ctq\Model\PageCache\DepersonalizeChecker" />
+
+    <type name="Aheadworks\Ctq\Block\Customer\Quote\Edit\Totals">
+        <arguments>
+            <argument name="layoutProcessors" xsi:type="array">
+                <item name="totals" xsi:type="object">Aheadworks\Ctq\Model\Layout\Customer\Quote\TotalsProcessor</item>
+                <item name="shipping" xsi:type="object">Aheadworks\Ctq\Model\Layout\Customer\Quote\ShippingProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Store\Model\StoreSwitcherInterface">
+        <plugin name="update_quote_item_store_after_switch_store_view" type="Aheadworks\Ctq\Plugin\Quote\UpdateQuoteItemStore"/>
+    </type>
+    <type name="Aheadworks\Ctq\Model\Quote\Customer\ConfigProvider\Composite">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="common" xsi:type="object">Aheadworks\Ctq\Model\Quote\Customer\ConfigProvider\Common</item>
+                <item name="totals" xsi:type="object">Aheadworks\Ctq\Model\Quote\Customer\ConfigProvider\Totals</item>
+                <item name="payment" xsi:type="object">Aheadworks\Ctq\Model\Quote\Customer\ConfigProvider\Payment</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="aw_ctq_shipping_address_provider" xsi:type="object">Aheadworks\Ctq\Model\Cart\Checkout\ConfigProvider\ShippingAddress</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\Message\MessageConfigurationsPool">
+        <arguments>
+            <argument name="configurationsMap" xsi:type="array">
+                <item name="addQuoteListSuccessMessage" xsi:type="array">
+                    <item name="renderer" xsi:type="const">Magento\Framework\View\Element\Message\Renderer\BlockRenderer::CODE</item>
+                    <item name="data" xsi:type="array">
+                        <item name="template" xsi:type="string">Aheadworks_Ctq::messages/addQuoteListSuccessMessage.phtml</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Customer\CustomerData\SectionPoolInterface">
+        <arguments>
+            <argument name="sectionSourceMap" xsi:type="array">
+                <item name="quote-list" xsi:type="string">Aheadworks\Ctq\CustomerData\QuoteList</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Ctq\Model\Quote\Permission\Checker">
+        <arguments>
+            <argument name="checkers" xsi:type="array">
+                <item name="byCustomerGroup" xsi:type="object">Aheadworks\Ctq\Model\Quote\Permission\Checker\CustomerGroup</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Customer\Block\CustomerData">
+        <arguments>
+            <argument name="expirableSectionNames" xsi:type="array">
+                <item name="quote-list" xsi:type="string">quote-list</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Customer\CustomerData\JsLayoutDataProviderPoolInterface">
+        <arguments>
+            <argument name="jsLayoutDataProviders" xsi:type="array">
+                <item name="quote_list_totals" xsi:type="object">Aheadworks\Ctq\CustomerData\QuoteList\TotalsJsLayoutDataProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Aheadworks\Ctq\Block\QuoteList\Totals" type="Magento\Checkout\Block\Cart\Totals">
+        <arguments>
+            <argument name="layoutProcessors" xsi:type="array">
+                <item name="removeDiscountTotal" xsi:type="object">Aheadworks\Ctq\Block\QuoteList\DiscountProcessor</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Request quote layout modifier -->
+    <virtualType name="Aheadworks\Ctq\ViewModel\RequestQuoteLinkLayoutModifier" type="Aheadworks\Ctq\ViewModel\LayoutModifier">
+        <arguments>
+            <argument name="layoutProcessor" xsi:type="object">Aheadworks\Ctq\Model\Layout\Customer\Quote\RequestPopup\Processor</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\Ctq\Model\Layout\Customer\Quote\RequestPopup\Processor" type="Aheadworks\Ctq\Model\Layout\ProcessorComposite">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="fileUploader" xsi:type="object">Aheadworks\Ctq\Model\Layout\Customer\Quote\RequestPopup\Processor\FileUploader</item>
+                <item name="customer" xsi:type="object">Aheadworks\Ctq\Model\Layout\Customer\Quote\RequestPopup\Processor\Customer</item>
+                <item name="message" xsi:type="object">Aheadworks\Ctq\Model\Layout\Customer\Quote\RequestPopup\Processor\QuoteRestrictionMessage</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Controller commands section -->
+    <type name="Aheadworks\Ctq\Controller\Quote\AddComment">
+        <arguments>
+            <argument name="addCommentCommand" xsi:type="object">Aheadworks\Ctq\Model\Data\Command\Quote\AddComment</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Ctq\Controller\Quote\Download">
+        <arguments>
+            <argument name="downloadCommand" xsi:type="object">Aheadworks\Ctq\Model\Data\Command\Quote\Download</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Ctq\Controller\Quote\Sort">
+        <arguments>
+            <argument name="sortCommand" xsi:type="object">Aheadworks\Ctq\Model\Data\Command\Quote\Sort</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Ctq\Controller\Quote\Save">
+        <arguments>
+            <argument name="saveCommand" xsi:type="object">Aheadworks\Ctq\Model\Data\Command\Quote\Save\Buyer</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Ctq\Controller\Quote\ChangeStatus">
+        <arguments>
+            <argument name="changeStatusCommand" xsi:type="object">Aheadworks\Ctq\Model\Data\Command\Quote\ChangeStatus</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Ctq\Controller\Quote\Buy">
+        <arguments>
+            <argument name="buyCommand" xsi:type="object">Aheadworks\Ctq\Model\Data\Command\Quote\Buy</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Ctq\Controller\RequestQuote\Submit">
+        <arguments>
+            <argument name="submitCommand" xsi:type="object">Aheadworks\Ctq\Model\Data\Command\Quote\Submit</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Ctq\Controller\Quote\External\AddComment">
+        <arguments>
+            <argument name="addCommentCommand" xsi:type="object">Aheadworks\Ctq\Model\Data\Command\Quote\AddComment</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Ctq\Controller\Quote\External\Download">
+        <arguments>
+            <argument name="downloadCommand" xsi:type="object">Aheadworks\Ctq\Model\Data\Command\Quote\Download</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Ctq\Controller\Quote\External\Sort">
+        <arguments>
+            <argument name="sortCommand" xsi:type="object">Aheadworks\Ctq\Model\Data\Command\Quote\Sort</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Ctq\Controller\Quote\External\Save">
+        <arguments>
+            <argument name="saveCommand" xsi:type="object">Aheadworks\Ctq\Model\Data\Command\Quote\Save\Buyer</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Ctq\Controller\Quote\External\ChangeStatus">
+        <arguments>
+            <argument name="changeStatusCommand" xsi:type="object">Aheadworks\Ctq\Model\Data\Command\Quote\ChangeStatus</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Ctq\Controller\Quote\External\Buy">
+        <arguments>
+            <argument name="buyCommand" xsi:type="object">Aheadworks\Ctq\Model\Data\Command\Quote\Buy</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Ctq\Controller\RequestQuote\External\Submit">
+        <arguments>
+            <argument name="submitCommand" xsi:type="object">Aheadworks\Ctq\Model\Data\Command\Quote\Submit</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\App\Action\AbstractAction">
+        <plugin name="awCtq" type="Aheadworks\Ctq\Plugin\Controller\FrontActionPlugin" />
+    </type>
+    <type name="Magento\Directory\Controller\Currency\SwitchAction">
+        <plugin name="awCtq" type="Aheadworks\Ctq\Plugin\Controller\Directory\SwitchActionPlugin" />
+    </type>
+</config>

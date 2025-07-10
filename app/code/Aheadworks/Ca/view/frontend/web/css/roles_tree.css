@@ -1,0 +1,3 @@
+.tree.jstree-default .jstree-leaf .jstree-ocl::before {
+    content: none !important;
+}

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd"
+         class="Aheadworks\Ca\Ui\Component\Listing\Company\Admin\CustomerListing">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">aw_ca_customer_listing.aw_ca_customer_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>customer_columns</spinner>
+        <deps>
+            <dep>aw_ca_customer_listing.aw_ca_customer_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="aw_ca_customer_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+            <filterUrlParams>
+                <param name="company_id">*</param>
+            </filterUrlParams>
+        </settings>
+        <dataProvider class="Aheadworks\Ca\Ui\DataProvider\Customer\ListingDataProvider" name="aw_ca_customer_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="customer_columns">
+        <selectionsColumn name="ids" sortOrder="10" component="Aheadworks_Ca/js/ui/grid/columns/single-select">
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="entity_id" sortOrder="20">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>asc</sorting>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="name" sortOrder="30">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Name</label>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="email" sortOrder="40">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Email</label>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="group_id" component="Magento_Ui/js/grid/columns/select" sortOrder="50">
+            <settings>
+                <options class="Aheadworks\Ca\Model\Source\Customer\Group"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Group</label>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="billing_telephone" sortOrder="60">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Phone</label>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="billing_postcode" sortOrder="70">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">ZIP</label>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="billing_country_id" component="Magento_Ui/js/grid/columns/select" sortOrder="80">
+            <settings>
+                <options class="Magento\Customer\Model\ResourceModel\Address\Attribute\Source\CountryWithWebsites"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Country</label>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="billing_region" sortOrder="90">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">State/Province</label>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <column name="website_id" class="Aheadworks\Ca\Ui\Component\Listing\Company\Customer\Websites" component="Magento_Ui/js/grid/columns/select" sortOrder="110">
+            <settings>
+                <options class="Magento\Store\Model\ResourceModel\Website\Collection"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Web Site</label>
+                <bodyTmpl>Aheadworks_UiComponents/grid/cells/text</bodyTmpl>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Magento\Customer\Ui\Component\Listing\Column\Actions">
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

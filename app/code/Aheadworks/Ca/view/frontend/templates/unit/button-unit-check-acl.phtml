@@ -1,0 +1,12 @@
+<?php
+
+/** @var Aheadworks\Ca\Block\ButtonWithCheckAcl $block */
+
+//@codingStandardsIgnoreFile
+
+?>
+<a href="javascript:void(0)"
+    data-href="<?= $escaper->escapeUrl($block->getUrl($block->getLink())) ?>"
+    class="action action-<?= /* @noEscape */ $block->getElementId() . " " . $block->getAdditionalClasses() ?>">
+    <span><?= $escaper->escapeHtml($block->getLabel()) ?></span>
+</a>

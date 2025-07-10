@@ -1,0 +1,21 @@
+<?php
+// @codingStandardsIgnoreFile
+/* @var $block \Magento\Framework\View\Element\Template */
+
+/* @var $companyViewModel Aheadworks\Ca\ViewModel\Company\Company */
+$companyViewModel = $block->getCompanyViewModel();
+/* @var $customerViewModel Aheadworks\Ca\ViewModel\Company\Customer */
+$customerViewModel = $block->getCustomerViewModel();
+/** @var \Aheadworks\Ca\ViewModel\Company\Formatter $formatter */
+$formatter = $block->getFormatterViewModel();
+$company = $companyViewModel->getCompanyByCustomer($customerViewModel->getCurrentCompanyUser());
+?>
+<div class="box box-contact-information">
+    <strong class="box-title">
+        <span><?= $block->escapeHtml(__('Sales Representative')) ?></span>
+    </strong>
+    <div class="box-content">
+        <p><?= $block->escapeHtml($formatter->formatSalesRepresentativeName($company)) ?></p>
+        <p><?= $block->escapeHtml($formatter->getSalesRepresentativeEmail($company)) ?></p>
+    </div>
+</div>

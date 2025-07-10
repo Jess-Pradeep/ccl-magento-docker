@@ -1,0 +1,20 @@
+<!--@subject {{trans 'A new order is waiting for your approval'}}@-->
+<!--@vars {
+"var company_admin_name": "Company Admin Name",
+"var user_name": "Customer Name",
+"var order_url": "Order URL"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<p>
+    {{trans 'Dear %company_admin_name,' company_admin_name=$company_admin_name}}<br />
+    {{trans 'A new order was sent for approval by %user_name.' user_name=$user_name}}
+</p>
+<p>
+    {{trans
+        'Click <a href="%order_url">here</a> to approve or reject the order.'
+        order_url=$order_url
+    |raw}}
+</p>
+
+{{template config_path="design/email/footer_template"}}

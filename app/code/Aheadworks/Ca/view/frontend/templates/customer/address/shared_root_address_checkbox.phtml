@@ -1,0 +1,36 @@
+<?php
+
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\Escaper;
+use Aheadworks\Ca\ViewModel\Customer\Address\SharedAddressCheckbox;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+/** @var SharedAddressCheckbox $viewModel */
+
+$viewModel = $block->getSharedAddressCheckboxViewModel();
+?>
+<?php if ($viewModel->canShowCheckbox()): ?>
+    <div class="field choice set aw-ca-shared-address" id="aw_ca_shared_address">
+        <input type="checkbox" name="aw_ca_shared_address" id="aw_ca_shared_address_checkbox"
+        <?php if($viewModel->isChecked()): ?>
+            checked="checked">
+        <?php else : ?>
+        >
+        <?php endif ?>
+        <label class="label" for="aw_ca_shared_address">
+            <span><?= $escaper->escapeHtml(__('Share addresses for all sub-accounts')) ?></span>
+        </label>
+    </div>
+
+    <script type="text/x-magento-init">
+    {
+        "*": {
+            "Aheadworks_Ca/js/customer/address/shared-root-address": {
+                "url": "<?= $escaper->escapeUrl($block->getUrl('aw_ca/company/SharedRootAddresses')) ?>"
+            }
+        }
+    }
+    </script>
+<?php endif ?>
+

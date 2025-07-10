@@ -1,0 +1,22 @@
+<!--@subject {{trans 'New user has been registered and waiting for your moderation'}}@-->
+<!--@vars {
+"var company_admin_name": "Company Admin Name",
+"var user_name": "Customer Name",
+"var company_users_url": "Link to Company Users Page"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<p>
+    {{trans 'Dear %company_admin_name,' company_admin_name=$company_admin_name}}<br />
+    {{trans 'There is a new user <strong>%user_name</strong> in status Pending waiting for your moderation.'
+    user_name=$user_name
+    |raw}}
+</p>
+<p>
+    {{trans
+    'Please set to Active or Inactive <a href="%company_users_url">here</a>.'
+    company_users_url=$company_users_url
+    |raw}}
+</p>
+
+{{template config_path="design/email/footer_template"}}

@@ -1,0 +1,118 @@
+& when (@media-common = true) {
+    .admin__data-grid-actions-wrap {
+        display: flex;
+        justify-content: end;
+        .admin__action-dropdown-wrap.admin__data-grid-action-import {
+            .admin__action-dropdown {
+                &:before {
+                    content:'\e636';
+                }
+            }
+        }
+        .admin__action-dropdown-wrap.admin__data-grid-action-export {
+            .admin__action-dropdown {
+                &:before {
+                    content:'\e635';
+                }
+            }
+        }
+        .admin__action-dropdown-wrap.admin__data-grid-action-export,
+        .admin__action-dropdown-wrap.admin__data-grid-action-import {
+            &._active {
+                opacity: @component-modal__opacity;
+                z-index: 300;
+                .admin__action-dropdown {
+                    &:after {
+                        transform: rotate(180deg);
+                    }
+                    border: 1px solid transparent!important;
+                    box-shadow: none!important;
+                }
+            }
+
+            .admin__action-dropdown-text {
+                &:after {
+                    display: none;
+                }
+            }
+
+            .admin__data-grid-action-export-menu,
+            .admin__data-grid-action-import-menu {
+                margin-top: 1px;
+                min-width: 160px;
+                padding: 2rem 2rem 1rem;
+
+                .admin__action-dropdown-footer-main-actions {
+                    padding-bottom: 2rem;
+                    padding-top: 2.5rem;
+                    white-space: nowrap;
+                }
+
+                .action-tertiary {
+                    color: @action-dropdown__active__border-color;
+                    background-color: transparent;
+                    border-color: transparent;
+                    text-shadow: none;
+
+                    &:hover, &:active, &:focus {
+                        color: @action-dropdown__active__border-color;
+                        text-decoration: underline;
+                    }
+                }
+
+                .action-secondary {
+                    background-image: none;
+                    background: #1979c3;
+                    border: 1px solid #1979c3;
+                    color: #ffffff;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                    font-weight: 600;
+                    padding: 7px 15px;
+                    font-size: 1.4rem;
+                    box-sizing: border-box;
+                    vertical-align: middle;
+
+                    &:hover {
+                        background: #006bb4;
+                        border: 1px solid #006bb4;
+                        color: #ffffff;
+                    }
+                }
+            }
+
+            .admin__action-dropdown {
+                border: 1px solid transparent;
+                box-shadow: none;
+                padding: 0.5rem 0 1rem 0.5rem;
+                color: @action-dropdown__active__border-color;
+
+                &:focus, &:hover {
+                    color: @action-dropdown__active__border-color;
+                }
+                &:before {
+                    &:extend(.abs-icon all);
+                    font-size: 1.7rem; // Static
+                    left: .3rem;
+                    font-family: 'ui-icons';
+                    margin-right: .7rem;
+                    vertical-align: top;
+                }
+                &:after {
+                    border: none;
+                    margin-top: -0.9rem;
+                    font-family: 'luma-icons';
+                    content: '\e622';
+                    position: static;
+                    display: inline-block;
+                    width: auto;
+                    height: auto;
+                    font-size: 12px;
+                    line-height: 22px;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Resolvers start -->
+    <virtualType name="Aheadworks\CaGraphQl\Model\Resolver\Role\RoleList" type="Aheadworks\CaGraphQl\Model\Resolver\EntityListResolver">
+        <arguments>
+            <argument name="dataProvider" xsi:type="object">Aheadworks\CaGraphQl\Model\Resolver\DataProvider\RoleList</argument>
+            <argument name="argsModifier" xsi:type="object">Aheadworks\CaGraphQl\Model\Resolver\Argument\Modifier\CompanyId</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\CaGraphQl\Model\Resolver\Argument\Modifier\CompanyIdForCompanyUser" type="Aheadworks\CaGraphQl\Model\Resolver\Argument\Modifier\CompanyId">
+        <arguments>
+            <argument name="companyIdFieldName" xsi:type="string">aw_ca_customer_by_company_id</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\CaGraphQl\Model\Resolver\CompanyUser\CompanyUserList" type="Aheadworks\CaGraphQl\Model\Resolver\EntityListResolver">
+        <arguments>
+            <argument name="dataProvider" xsi:type="object">Aheadworks\CaGraphQl\Model\Resolver\DataProvider\CompanyUserList</argument>
+            <argument name="argsModifier" xsi:type="object">Aheadworks\CaGraphQl\Model\Resolver\Argument\Modifier\CompanyIdForCompanyUser</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\CaGraphQl\Model\Resolver\Domain\DomainList" type="Aheadworks\CaGraphQl\Model\Resolver\EntityListResolver">
+        <arguments>
+            <argument name="dataProvider" xsi:type="object">Aheadworks\CaGraphQl\Model\Resolver\DataProvider\CompanyDomainList</argument>
+            <argument name="argsModifier" xsi:type="object">Aheadworks\CaGraphQl\Model\Resolver\Argument\Modifier\CompanyId</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\CaGraphQl\Model\Resolver\HistoryLog\HistoryLogListResolver" type="Aheadworks\CaGraphQl\Model\Resolver\EntityListResolver">
+        <arguments>
+            <argument name="dataProvider" xsi:type="object">Aheadworks\CaGraphQl\Model\Resolver\DataProvider\HistoryLogList</argument>
+            <argument name="argsModifier" xsi:type="object">Aheadworks\CaGraphQl\Model\Resolver\Argument\Modifier\CompanyId</argument>
+        </arguments>
+    </virtualType>
+    <!-- Resolvers end -->
+
+    <!-- Additional filtered attributes pool for search criteria builder start -->
+    <type name="Magento\Framework\GraphQl\Query\Resolver\Argument\FieldEntityAttributesPool">
+        <arguments>
+            <argument name="attributesInstances" xsi:type="array">
+                <item name="awCaRoleList" xsi:type="object">Aheadworks\CaGraphQl\Model\Resolver\Argument\Filter\RoleEntityAttributesForAst</item>
+                <item name="awCaCompanyUserList" xsi:type="object">Aheadworks\CaGraphQl\Model\Resolver\Argument\Filter\CompanyUserEntityAttributesForAst</item>
+                <item name="awCaCompanyDomainList" xsi:type="object">Aheadworks\CaGraphQl\Model\Resolver\Argument\Filter\CompanyDomainEntityAttributesForAst</item>
+                <item name="awCaHistoryLogList" xsi:type="object">Aheadworks\CaGraphQl\Model\Resolver\Argument\Filter\CompanyHistoryLogEntityAttributesForAst</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Aheadworks\CaGraphQl\Model\Resolver\Argument\Filter\RoleEntityAttributesForAst" type="Aheadworks\CaGraphQl\Model\Resolver\Argument\Filter\EntityAttributesForAst">
+        <arguments>
+            <argument name="entityElementName" xsi:type="string">AwCaCompanyRole</argument>
+            <argument name="additionalAttributes" xsi:type="array">
+                <item name="0" xsi:type="string">company_id</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\CaGraphQl\Model\Resolver\Argument\Filter\CompanyUserEntityAttributesForAst" type="Aheadworks\CaGraphQl\Model\Resolver\Argument\Filter\EntityAttributesForAst">
+        <arguments>
+            <argument name="entityElementName" xsi:type="string">AwCaUser</argument>
+            <argument name="additionalAttributes" xsi:type="array">
+                <item name="0" xsi:type="string">aw_ca_customer_by_company_id</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\CaGraphQl\Model\Resolver\Argument\Filter\CompanyDomainEntityAttributesForAst" type="Aheadworks\CaGraphQl\Model\Resolver\Argument\Filter\EntityAttributesForAst">
+        <arguments>
+            <argument name="entityElementName" xsi:type="string">AwCaCompanyDomain</argument>
+            <argument name="additionalAttributes" xsi:type="array">
+                <item name="0" xsi:type="string">company_id</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\CaGraphQl\Model\Resolver\Argument\Filter\CompanyHistoryLogEntityAttributesForAst" type="Aheadworks\CaGraphQl\Model\Resolver\Argument\Filter\EntityAttributesForAst">
+        <arguments>
+            <argument name="entityElementName" xsi:type="string">awCaHistoryLog</argument>
+            <argument name="additionalAttributes" xsi:type="array">
+                <item name="0" xsi:type="string">company_id</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <!-- Additional filtered attributes pool for search criteria builder end -->
+
+    <!-- Command injection section start -->
+    <type name="Aheadworks\CaGraphQl\Model\Resolver\Mutation\Domain\AddNew">
+        <arguments>
+            <argument name="saveDomainCommand" xsi:type="object">Aheadworks\Ca\Model\Data\Command\Company\Domain\Save</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\CaGraphQl\Model\Resolver\Mutation\Domain\Delete">
+        <arguments>
+            <argument name="deleteDomainCommand" xsi:type="object">Aheadworks\Ca\Model\Data\Command\Company\Domain\Delete</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\CaGraphQl\Model\Resolver\Mutation\Domain\Activate">
+        <arguments>
+            <argument name="saveDomainCommand" xsi:type="object">Aheadworks\Ca\Model\Data\Command\Company\Domain\Save</argument>
+        </arguments>
+    </type>
+    <virtualType name="Aheadworks\CaGraphQl\Model\Resolver\Mutation\Domain\Deactivate" type="Aheadworks\CaGraphQl\Model\Resolver\Mutation\Domain\Activate">
+        <arguments>
+            <argument name="receivedStatus" xsi:type="const">Aheadworks\Ca\Model\Source\Company\Domain\Status::INACTIVE</argument>
+        </arguments>
+    </virtualType>
+    <type name="Aheadworks\CaGraphQl\Model\Resolver\Mutation\User\Activate">
+        <arguments>
+            <argument name="changeStatusCommand" xsi:type="object">Aheadworks\Ca\Model\Data\Command\User\ChangeStatus</argument>
+        </arguments>
+    </type>
+    <virtualType name="Aheadworks\CaGraphQl\Model\Resolver\Mutation\User\Deactivate" type="Aheadworks\CaGraphQl\Model\Resolver\Mutation\User\Activate">
+        <arguments>
+            <argument name="receivedStatus" xsi:type="const">Aheadworks\Ca\Model\Source\Customer\CompanyUser\Status::INACTIVE</argument>
+        </arguments>
+    </virtualType>
+    <type name="Aheadworks\CaGraphQl\Model\Resolver\Mutation\Role\Save">
+        <arguments>
+            <argument name="saveRoleCommand" xsi:type="object">Aheadworks\Ca\Model\Data\Command\Role\Save</argument>
+        </arguments>
+    </type>
+    <virtualType name="Aheadworks\CaGraphQl\Model\Resolver\Mutation\OrderApproval\Reject" type="Aheadworks\CaGraphQl\Model\Resolver\Mutation\OrderApproval\Approve">
+        <arguments>
+            <argument name="action" xsi:type="const">Aheadworks\CaGraphQl\Model\Resolver\Mutation\OrderApproval\Approve::REJECT_ACTION</argument>
+        </arguments>
+    </virtualType>
+    <!-- Command injection section end -->
+</config>

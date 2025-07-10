@@ -1,0 +1,22 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var \Aheadworks\Ctq\Block\Adminhtml\Quote\Edit\QuoteCurrency $block */
+?>
+<?php if ($block->isVisible()) : ?>
+    <div class="store-switcher quote-currency">
+        <label class="admin__field-label" for="currency_switcher">
+            <?= $block->escapeHtml(__('Quote Currency:')) ?>
+        </label>
+        <select id="currency_switcher"
+                class="admin__control-select"
+                name="quote[currency]"
+                onchange="quote.setCurrencyId(this.value); quote.setCurrencySymbol(this.options[this.selectedIndex].getAttribute('symbol'));">
+            <?php foreach ($block->getAvailableCurrencies() as $code) : ?>
+                <option value="<?= $block->escapeHtmlAttr($code) ?>"<?php if ($code == $block->getCurrentCurrencyCode()) : ?> selected="selected"<?php endif; ?> symbol="<?= $block->escapeHtmlAttr($block->getCurrencySymbol($code)) ?>">
+                    <?= $block->escapeHtml($block->getCurrencyName($code)) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+<?php endif; ?>

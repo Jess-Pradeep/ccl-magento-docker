@@ -1,0 +1,23 @@
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+  .aw-cl__top-totals-list-wrap {
+    .total-list {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+    .aw-cl__top-totals-list-wrap {
+        .total-list {
+            padding-left: 0px;
+        }
+    }
+}

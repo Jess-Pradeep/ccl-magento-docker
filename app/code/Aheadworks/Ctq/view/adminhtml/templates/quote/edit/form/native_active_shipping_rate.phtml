@@ -1,0 +1,27 @@
+<?php
+
+use Aheadworks\Ctq\Block\Adminhtml\Quote\Edit\Shipping\Method\Form;
+use Magento\Framework\Escaper;
+// @codingStandardsIgnoreFile
+
+/** @var $block Form */
+/** @var Escaper $escaper */
+
+?>
+<?php $rate = $block->getRate() ?>
+<?php $rate = $block->getRate() ?>
+<dl class="admin__quote-shipment-methods">
+    <dt class="admin__quote-shipment-methods-title">
+        <?= $escaper->escapeHtml($block->getCarrierName($rate->getCarrier())) ?>
+    </dt>
+    <dd class="admin__quote-shipment-methods-options">
+        <?= $escaper->escapeHtml($rate->getMethodTitle() ? $rate->getMethodTitle() : $rate->getMethodDescription()) ?> -
+
+        <strong>
+            <?= /* @escapeNotVerified */ $block->getShippingPriceExclTax($rate); ?>
+            <?php if ($block->isNeedToDisplayBothPrices($rate)): ?>
+                (<?= /* @escapeNotVerified */ __('Incl. Tax') ?> <?= /* @escapeNotVerified */ $block->getShippingPriceExclTax($rate) ?>)
+            <?php endif; ?>
+        </strong>
+    </dd>
+</dl>

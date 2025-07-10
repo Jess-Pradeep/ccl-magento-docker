@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="sales.order.info.buttons">
+            <block name="aw-ca.order.buttons.approve" template="Aheadworks_Ca::order/view/button.phtml" cacheable="false">
+                <arguments>
+                    <argument name="order_button_view_model" xsi:type="object">Aheadworks\Ca\ViewModel\Order\View\Button\Approve</argument>
+                </arguments>
+            </block>
+            <block name="aw-ca.order.buttons.reject" template="Aheadworks_Ca::order/view/button.phtml" cacheable="false">
+                <arguments>
+                    <argument name="order_button_view_model" xsi:type="object">Aheadworks\Ca\ViewModel\Order\View\Button\Reject</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

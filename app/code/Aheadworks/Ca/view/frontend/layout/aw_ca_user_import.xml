@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceBlock name="customer_account_navigation">
+            <action method="setActive">
+                <argument name="path" xsi:type="string">aw_ca/user</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block name="aw.ca.user.import"
+                   template="Aheadworks_Ca::company_user/import.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Aheadworks\Ca\ViewModel\User\Import</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

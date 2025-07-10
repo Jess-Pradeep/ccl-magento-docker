@@ -1,0 +1,29 @@
+<?php
+use Aheadworks\Ca\ViewModel\Company\Restriction\AllowedShippingMethods;
+use Magento\Framework\View\Element\Template;
+
+/**
+ * @var AllowedShippingMethods $shippingViewModel
+ * @var Template $block
+ */
+
+$shippingViewModel = $block->getShippingViewModel();
+?>
+<?php if ($shippingViewModel->isSectionActive()): ?>
+    <div class="block block-allowed-shipping-methods">
+        <div class="block-title">
+            <strong><?= $block->escapeHtml(__('Allowed Shipping Methods')) ?></strong>
+        </div>
+        <div class="block-content">
+            <div class="box box-allowed-shipping-methods">
+                <div class="box-content">
+                    <ul class="items">
+                        <?php foreach ($shippingViewModel->getList() as $shippingMethodOption): ?>
+                            <li><?= $shippingMethodOption['label'] ? $block->escapeHtml($shippingMethodOption['label']) : '' ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

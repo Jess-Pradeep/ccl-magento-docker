@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">aw_ca_sales_order_history_listing.aw_ca_sales_order_history_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>aw_ca_sales_order_history_columns</spinner>
+        <deps>
+            <dep>aw_ca_sales_order_history_listing.aw_ca_sales_order_history_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="aw_ca_sales_order_history_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Aheadworks\Ca\Ui\DataProvider\Order\ListingDataProvider</argument>
+            <argument name="name" xsi:type="string">aw_ca_sales_order_history_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">entity_id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks" component="Aheadworks_Ca/js/ui/grid/controls/bookmarks/bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters" displayArea="dataGridFilters" component="Aheadworks_Ca/js/ui/grid/filters/filters">
+            <settings>
+                <dataScope>filters</dataScope>
+                <childDefaults>
+                    <param name="imports" xsi:type="array">
+                        <item name="visible" xsi:type="string">
+                            aw_ca_sales_order_history_listing.aw_ca_sales_order_history_listing.listing_top.bookmarks:current.columns.${ $.index }.visible
+                        </item>
+                    </param>
+                    <param name="provider" xsi:type="string">
+                        aw_ca_sales_order_history_listing.aw_ca_sales_order_history_listing.listing_top.listing_filters
+                    </param>
+                </childDefaults>
+                <storageConfig>
+                    <namespace>current.filters</namespace>
+                    <provider>
+                        aw_ca_sales_order_history_listing.aw_ca_sales_order_history_listing.listing_top.bookmarks
+                    </provider>
+                </storageConfig>
+                <templates>
+                    <filters>
+                        <dateRange>
+                            <param name="templates" xsi:type="array">
+                                <item name="date" xsi:type="array">
+                                    <item name="dateFormat" xsi:type="string">dd/MM/YYYY</item>
+                                    <item name="options" xsi:type="array">
+                                        <item name="dateFormat" xsi:type="string">dd/MM/y</item>
+                                    </item>
+                                </item>
+                            </param>
+                        </dateRange>
+                    </filters>
+                </templates>
+            </settings>
+        </filters>
+    </listingToolbar>
+    <columns name="aw_ca_sales_order_history_columns" class="Aheadworks\Ca\Ui\Component\Listing\Order\Columns">
+        <column name="increment_id" sortOrder="10">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Order #</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="draggable" xsi:type="boolean">false</item>
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="bodyTmpl" xsi:type="string">Aheadworks_UiComponents/grid/cells/text</item>
+                </item>
+            </argument>
+        </column>
+        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Date</label>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+        <column name="customer_name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Created By</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="draggable" xsi:type="boolean">false</item>
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                    <item name="bodyTmpl" xsi:type="string">Aheadworks_UiComponents/grid/cells/text</item>
+                </item>
+            </argument>
+        </column>
+        <column name="shipping_name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Ship To</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="draggable" xsi:type="boolean">false</item>
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="bodyTmpl" xsi:type="string">Aheadworks_UiComponents/grid/cells/text</item>
+                </item>
+            </argument>
+        </column>
+        <column name="grand_total">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Order Total</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="draggable" xsi:type="boolean">false</item>
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="sortOrder" xsi:type="number">50</item>
+                    <item name="bodyTmpl" xsi:type="string">Aheadworks_UiComponents/grid/cells/text</item>
+                </item>
+            </argument>
+        </column>
+        <column name="status">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Aheadworks\Ca\Model\Source\Order\Status</item>
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Status</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="draggable" xsi:type="boolean">false</item>
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="sortOrder" xsi:type="number">60</item>
+                    <item name="bodyTmpl" xsi:type="string">Aheadworks_UiComponents/grid/cells/text</item>
+                </item>
+            </argument>
+        </column>
+        <actionsColumn name="actions" class="Aheadworks\Ca\Ui\Component\Listing\Order\Column\Actions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">120</item>
+                    <item name="bodyTmpl" xsi:type="string">Aheadworks_Ca/ui/grid/columns/order/history/cells/actions</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
+                    <item name="sortOrder" xsi:type="number">999</item>
+                </item>
+            </argument>
+        </actionsColumn>
+    </columns>
+    <listingToolbar name="listing_bottom">
+        <paging name="listing_paging"/>
+    </listingToolbar>
+</listing>

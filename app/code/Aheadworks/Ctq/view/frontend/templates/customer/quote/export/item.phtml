@@ -1,0 +1,51 @@
+<?php
+/* @var $block \Aheadworks\Ctq\Block\Customer\Quote\Edit\Item */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+$item = $block->getItem();
+$itemProduct = $item->getProduct();
+$itemOptions = $block->getViewModel()->getOptionList($item);
+$itemId = $item->getId();
+?>
+
+<tr>
+    <td align="center" data-th="<?= $block->escapeHtml(__('Quantity')) ?>">
+        <?= /* @noEscape */ $block->getQty() ?>
+    </td>
+    <td align="center" data-th="<?= $block->escapeHtml(__('Code')) ?>">
+        <?= /* @noEscape */ $itemProduct->getSku() ?>
+    </td>
+    <td align="right" data-th="<?= $block->escapeHtml(__('Price')) ?>">
+        <?= /* @noEscape */ $block->getUnitPriceHtml($item) ?>
+    </td>
+    <td align="right" data-th="<?= $block->escapeHtml(__('Subtotal')) ?>">
+        <?= /* @noEscape */ $block->getRowTotalHtml($item) ?>
+    </td>
+</tr>
+<tr>
+    <td></td>
+    <td colspan="3">
+        <?= /* @noEscape */ $itemProduct->getName() ?>
+        <div>
+            <?php if($itemOptions): ?>
+                <?php foreach ($itemOptions as $itemOption): ?>
+                    <span><strong><?= /* @noEscape */ $itemOption['label'] ?></strong></span>
+                    <span>
+                        <?php $formatted = $block->getViewModel()->getFormattedOptionValue($itemOption) ?>
+                        <?= /* @noEscape */ $formatted['value'] ?>
+                    </span>
+                    <br/>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+        <?php if($itemProduct->getImage()): ?>
+            <br/>
+            <img src="<?= /* @noEscape */ $block->getImageUrl($itemProduct) ?>"
+                 alt="<?= /* @noEscape */ $itemProduct->getName() ?>"
+                 width="265"
+                 height="265">
+        <?php endif; ?>
+    </td>
+</tr>
