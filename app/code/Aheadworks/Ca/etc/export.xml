@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_ImportExport:etc/export.xsd">
-    <entity name="aw_ca_company" label="Aheadworks Company Accounts (Companies)" model="Aheadworks\Ca\Model\Export\Company" entityAttributeFilterType="aw_ca_company"/>
-</config>

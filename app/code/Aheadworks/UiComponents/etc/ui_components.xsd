@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-    <!-- Include section -->
-    <xs:include schemaLocation="urn:magento:module:Aheadworks_UiComponents:etc/definition/exportColumns.xsd"/>
-</xs:schema>

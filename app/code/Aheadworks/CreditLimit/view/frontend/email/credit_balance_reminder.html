@@ -1,9 +1,0 @@
-<!--@subject {{trans 'Credit Balance Reminder'}}@-->
-{{template config_path="design/email/header_template"}}
-
-<p>
-    {{trans 'Dear %customer_name,' customer_name=$customer_name}}<br />
-    {{trans 'We kindly remind you that your current credit balance is  %credit_balance.' credit_balance=$credit_balance}}
-</p>
-
-{{template config_path="design/email/footer_template"}}

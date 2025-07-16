@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/queue.xsd">
-    <broker topic="aw_ca.share_addresses" exchange="magento">
-        <queue name="aw_ca.share_addresses"
-               consumer="aw_ca.share_addresses"
-               handler="Aheadworks\Ca\Model\Company\Address\Shared\Consumer::process"/>
-    </broker>
-</config>

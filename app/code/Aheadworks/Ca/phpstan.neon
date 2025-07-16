@@ -1,9 +1,0 @@
-includes:
-    - phpstan-baseline.neon
-
-parameters:
-    excludePaths:
-        - Model/Import/ImportEntity.php
-        - Model/ThirdPartyModule/Aheadworks/RewardPoints/Model/SummaryManagement.php
-        - Model/ThirdPartyModule/Aheadworks/RewardPoints/Model/TransactionManagement.php
-        - Model/ThirdPartyModule/Aheadworks/RewardPoints/Plugin/Customer/PointsSummaryServicePlugin.php

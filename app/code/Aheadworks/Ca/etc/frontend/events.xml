@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
-    <event name="controller_action_predispatch_aw_ca_company_savepost">
-        <observer name="msp_captcha" instance="Aheadworks\Ca\Model\ThirdPartyModule\Msp\ReCaptcha\Observer\CreateAwCaCompanyObserver" />
-        <observer name="magento_captcha" instance="Aheadworks\Ca\Model\ThirdPartyModule\Magento\ReCaptcha\Observer\CreateAwCaCompanyObserver" />
-    </event>
-</config>
