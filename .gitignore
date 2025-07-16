@@ -5,7 +5,7 @@
 /src/pub/static/
 /src/pub/media/
 /src/app/etc/env.php
-/app
+/app/
 
 # Secrets
 .env
