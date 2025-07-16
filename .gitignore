@@ -7,6 +7,8 @@
 /src/app/etc/env.php
 /app/
 /template/
+/src/pub/media.zip
+/src/pub/media/
 
 # Secrets
 .env
