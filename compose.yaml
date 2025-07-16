@@ -148,3 +148,4 @@ volumes:
   rabbitmqdata:
   sockdata:
   ssldata:
+  magento-media:

@@ -1,10 +1,22 @@
-/vendor/
+# Magento source
+/src/
 /src/var/
 /src/generated/
 /src/pub/static/
 /src/pub/media/
 /src/app/etc/env.php
+/app
+
+# Secrets
 .env
-*.log
+*.pem
 *.sql
+*.log
+rootCA.pem
+
+
+# Node & frontend
 node_modules/
+package-lock.json
+
+
