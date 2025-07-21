@@ -11,7 +11,7 @@ services:
       - ./src/grunt-config.json.sample:/var/www/html/grunt-config.json:cached
       - ./src/Gruntfile.js.sample:/var/www/html/Gruntfile.js:cached
       - ./src/dev/tools/grunt/configs:/var/www/html/dev/tools/grunt/configs:cached
-      - ./src/nginx.conf.sample:/var/www/html/nginx.conf:cached
+      - ./src/nginx.conf:/var/www/html/nginx.conf:cached
       - ./src/package.json:/var/www/html/package.json:cached
       - ./src/package-lock.json:/var/www/html/package-lock.json:cached 
       - ./src/generated:/var/www/html/generated:cached
